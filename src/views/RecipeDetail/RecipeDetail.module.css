@@ -73,16 +73,6 @@
     width: 100px;
 }
 
-.sprites figcaption {
-    font-weight: 500;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-.sprites img {
-    width: 70px;
-}
-
 .description {
     margin: 40px 0;
     font-size: 18px;
@@ -189,4 +179,12 @@
 
 .statName {
     font-weight: 500;
+}
+
+.recipe{
+    width: 100% !important;
+}
+.ingredient {
+   width: 6%;
+    height: 100%;
 }

@@ -20,7 +20,7 @@ function RecipeCard(props) {
                         #{number}
                     </CardText>
                     <div className={style.types}>
-                        {types}
+                        <RecipeType id={number}/>
                     </div>
                 </CardBody>
             </Card>

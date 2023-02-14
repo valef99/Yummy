@@ -29,7 +29,7 @@ function Recipes() {
                     {displayGrid ?
                             <RecipesCardsGrid
                                 RecipesList={RecipesListData}
-                                col={{xs:1, sm:2, md:3, lg:4, xl:5}}/> :
+                                col={{xs:1, sm:2, md:3, lg:3, xl:3}}/> :
                             <RecipesTable RecipesList={RecipesListData}/>}
                 </div>
             </div>

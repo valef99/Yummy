@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import RecipeListData from "../../assets/data/food.json"
 import RecipeType from "../../components/RecipeType/RecipeType";
 import {NavLink, useParams} from "react-router-dom";
-import style from "./RecipeDetail.module.css"
+import style from "./RecipeDetail.module.css";
+import {ListGroup, ListGroupItem, Progress} from 'reactstrap';
 
 function RecipeDetail(props) {
     const apiKey = "7f6a875ba7534336a2123077bded04cd";
@@ -37,18 +38,48 @@ function RecipeDetail(props) {
     }
 
     return(
-        <div>sto visualizzando la ricetta {id}
+        <div className="container">sto visualizzando la ricetta {id}
+            <div className="row">
+                <div className="col-4">
+                    <img src={currentRecipe.image} className={style.recipe}/>
+                </div>
+                <div className="col-8">
+                    <div className="row">
+                        <div className="col">
+                            <h1>{currentRecipe.title}</h1>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-5">
+                            <p>{currentRecipe.readyInMinutes + " minutes"}</p>
+                            <p>{currentRecipe.servings + " people"}</p>
+                            <p>Health Score</p>
+                            <Progress striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-4">
+                    <RecipeType id= {id}/>
+                </div>
+            </div>
             <div>
                 {ingredients &&
-                    <table>
+                    <ListGroup>
                         {ingredients.map((ingredient) => {
-                            return <tr>
-                                        <td><img src={ingredient.src} alt={ingredient.name}/></td>
-                                        <td>{ingredient.name}</td>
-                                        <td>{ingredient.quantity + ingredient.unit}</td>
-                            </tr>
+                            return (
+                                <ListGroupItem className="d-flex flex-row align-items-center">
+                                    <img src={ingredient.src} alt={ingredient.name} className={style.ingredient}/>
+                                    <div>
+                                        <p>{ingredient.name}</p>
+                                        <p>{ingredient.quantity + ingredient.unit}</p>
+                                    </div>
+
+                                 </ListGroupItem>
+                            );
                         })}
-                    </table>
+                    </ListGroup>
                 }
             </div>
         </div>
