@@ -4,6 +4,7 @@ import RecipeType from "../../components/RecipeType/RecipeType";
 import {NavLink, useParams} from "react-router-dom";
 import style from "./RecipeDetail.module.css";
 import {ListGroup, ListGroupItem, Progress} from 'reactstrap';
+import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
 
 function RecipeDetail(props) {
     const apiKey = "7f6a875ba7534336a2123077bded04cd";
@@ -11,6 +12,7 @@ function RecipeDetail(props) {
     let id = parseInt(number);
     const currentRecipe = RecipeListData.filter((recipe) => recipe.id === id)[0];
     const [recipeData, setRecipeData] = useState([]);
+    const steps = currentRecipe.analyzedInstructions[0].steps;
 
     useEffect(() => {
        let isMounted = true;
@@ -64,23 +66,41 @@ function RecipeDetail(props) {
                     <RecipeType id= {id}/>
                 </div>
             </div>
+            <div className="row">
+                <div className="col">
+                    <RecipeCategory id={id}/>
+                </div>
+            </div>
             <div>
                 {ingredients &&
-                    <ListGroup>
+                    <div className="row">
                         {ingredients.map((ingredient) => {
                             return (
-                                <ListGroupItem className="d-flex flex-row align-items-center">
+                                <div className="d-flex flex-row align-items-center col-6">
                                     <img src={ingredient.src} alt={ingredient.name} className={style.ingredient}/>
                                     <div>
                                         <p>{ingredient.name}</p>
-                                        <p>{ingredient.quantity + ingredient.unit}</p>
+                                        <p>{ingredient.quantity + " " + ingredient.unit}</p>
                                     </div>
-
-                                 </ListGroupItem>
+                                 </div>
                             );
                         })}
-                    </ListGroup>
+                    </div>
                 }
+            </div>
+            <div className="row">
+                <div className="col">
+                    <h2>Let's cook!</h2>
+                    <ol>
+                        {steps.map((stepi) => {
+                            return (
+                                <li>
+                                    {stepi.step}
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </div>
             </div>
         </div>
     );
