@@ -8,16 +8,22 @@ function RecipesCardsGrid(props) {
     const {RecipesList, col, filter} = props;
     const [item, setItem] = useState(RecipesList);
 
-    const menuItems = [...new Set(RecipesList.map((Val) => Val.diets.filter((diet) => diet==="vegetarian")))];
+    const menuItems = [...new Set(["Vegetarian", "Vegan", "Gluten free"])];
 
     const filterItem = (curcat) => {
-        const newItem = RecipesList.filter((newVal) => {
-            return newVal.diets === curcat;
+        const newItem = RecipesList.filter((recipe) => {
+            for(let i=0; i<recipe.diets.length; i++){
+                if(recipe.diets[i].includes(curcat.toLowerCase())){
+                    return true;
+                }
+
+            }
+            return false;
         });
         setItem(newItem);
     };
 
-    const recipeCardsCol = RecipesList.map((recipe) => {
+    const recipeCardsCol = item.map((recipe) => {
         return(
             <div key={recipe.id} className="col">
                 <RecipeCard

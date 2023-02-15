@@ -10,8 +10,8 @@ function Recipes() {
 
     return(
         <div className="container">
-            <div className="row">
-                <div className="col-4">
+            <div className="row justify-content-end">
+                <div className="col">
                     <div className={style.switch}>
                         <div className={clsx(style.option, {[style.active]: displayGrid})}
                              onClick={() => setDisplayGrid(true)}>
