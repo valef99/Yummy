@@ -10,8 +10,8 @@ function Recipes() {
 
     return(
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col">
+            <div className="row">
+                <div className="col-4">
                     <div className={style.switch}>
                         <div className={clsx(style.option, {[style.active]: displayGrid})}
                              onClick={() => setDisplayGrid(true)}>
@@ -26,11 +26,12 @@ function Recipes() {
             </div>
             <div className="row justify-content-center">
                 <div className="col">
-                    {displayGrid ?
-                            <RecipesCardsGrid
+                    { displayGrid ?
+                        (<RecipesCardsGrid
                                 RecipesList={RecipesListData}
-                                col={{xs:1, sm:2, md:3, lg:3, xl:3}}/> :
-                            <RecipesTable RecipesList={RecipesListData}/>}
+                                col={{xs:1, sm:2, md:3, lg:3, xl:3}}/>)
+                        :
+                        (<RecipesTable RecipesList={RecipesListData}/>)}
                 </div>
             </div>
         </div>

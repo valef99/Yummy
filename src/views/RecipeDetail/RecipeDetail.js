@@ -59,16 +59,16 @@ function RecipeDetail(props) {
                             <Progress striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col">
+                            <RecipeCategory id={id}/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="row">
                 <div className="col-4">
                     <RecipeType id= {id}/>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col">
-                    <RecipeCategory id={id}/>
                 </div>
             </div>
             <div>
