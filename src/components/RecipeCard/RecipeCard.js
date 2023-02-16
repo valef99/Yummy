@@ -14,14 +14,8 @@ function RecipeCard(props) {
             <Card className={style.card}>
                 <CardImg onError={(event) => recipeDefaultImage(event)} loading="lazy" className={style.image} top
                          width="100%" src={image} alt={name}/>
-                <CardBody className="text-center">
-                    <CardTitle tag="h5" className={`h3 ${style.title}`}>{name}</CardTitle>
-                    <CardText>
-                        #{number}
-                    </CardText>
-                    <div className={style.types}>
-                        <RecipeType id={number}/>
-                    </div>
+                <CardBody>
+                    <CardTitle tag="h5" className={`h4 ${style.title}`}>{name}</CardTitle>
                 </CardBody>
             </Card>
         </NavLink>

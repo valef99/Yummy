@@ -1,0 +1,9 @@
+.button-active{
+    background-color: grey !important;
+}
+.containerButtons{
+    background-color: #f8f9fA;
+}
+.containerButtons:hover{
+    background-color: white;
+}

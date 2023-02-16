@@ -5,12 +5,17 @@ import {NavLink, useParams} from "react-router-dom";
 import style from "./RecipeDetail.module.css";
 import {ListGroup, ListGroupItem, Progress} from 'reactstrap';
 import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
+import Time from "../../assets/images/timer.png"
+import People from "../../assets/images/people.png"
 
 function RecipeDetail(props) {
     const apiKey = "7f6a875ba7534336a2123077bded04cd";
     let {number} = useParams();
     let id = parseInt(number);
     const currentRecipe = RecipeListData.filter((recipe) => recipe.id === id)[0];
+    const index = RecipeListData.map(recipe => recipe.id).indexOf(currentRecipe.id);
+    console.log(index);
+
     const [recipeData, setRecipeData] = useState([]);
     const steps = currentRecipe.analyzedInstructions[0].steps;
 
@@ -30,7 +35,6 @@ function RecipeDetail(props) {
     let ingredients = [];
     if (recipeData && recipeData.ingredients) {
         Object.keys(recipeData.ingredients).map((key) => {
-            const types = "bho";
                 return ingredients.push({
                     src: "https://spoonacular.com/cdn/ingredients_100x100/" + recipeData.ingredients[key].image,
                     name: recipeData.ingredients[key].name, quantity: recipeData.ingredients[key].amount.us.value,
@@ -40,7 +44,17 @@ function RecipeDetail(props) {
     }
 
     return(
-        <div className="container">sto visualizzando la ricetta {id}
+        <div className="container">
+            <div className={style.navigation}>
+                {index !== 0 &&
+                    <NavLink className={`${style.prev} ${style.navItem}`}
+                             to={`/recipes/${RecipeListData[index-1].id}`}>&lt; Prev</NavLink>
+                }
+                {index+1 < Object.keys(RecipeListData).length &&
+                    <NavLink className={`${style.next} ${style.navItem}`}
+                             to={`/recipes/${RecipeListData[index+1].id}`}>Next &gt;</NavLink>
+                }
+            </div>
             <div className="row">
                 <div className="col-4">
                     <img src={currentRecipe.image} className={style.recipe}/>
@@ -53,8 +67,14 @@ function RecipeDetail(props) {
                     </div>
                     <div className="row">
                         <div className="col-5">
-                            <p>{currentRecipe.readyInMinutes + " minutes"}</p>
-                            <p>{currentRecipe.servings + " people"}</p>
+                            <div className="d-flex flex-row">
+                                <img src={Time} className={style.ingredient}/>
+                                <p>{currentRecipe.readyInMinutes + " minutes"}</p>
+                            </div>
+                            <div className="d-flex flex-row">
+                                <img src={People} className={style.ingredient}/>
+                                <p>{currentRecipe.servings + " people"}</p>
+                            </div>
                             <p>Health Score</p>
                             <Progress striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
                         </div>

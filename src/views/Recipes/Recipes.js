@@ -4,23 +4,21 @@ import RecipesCardsGrid from "../../components/RecipesCardsGrid/RecipesCardsGrid
 import style from "./Recipes.module.css"
 import clsx from "clsx";
 import RecipesListData from "../../assets/data/food.json"
+import Grid from "../../assets/images/grid.png"
+import Table from "../../assets/images/table.png"
 
 function Recipes() {
     const[displayGrid, setDisplayGrid] = useState("true");
 
     return(
         <div className="container">
-            <div className="row justify-content-end">
-                <div className="col">
+            <div className="row">
+                <div className="col d-flex justify-content-end">
                     <div className={style.switch}>
-                        <div className={clsx(style.option, {[style.active]: displayGrid})}
-                             onClick={() => setDisplayGrid(true)}>
-                            Grid
-                        </div>
-                        <div className={clsx(style.option, {[style.active]: !displayGrid})}
-                             onClick={() => setDisplayGrid(false)}>
-                            Table
-                        </div>
+                        <img src={Grid} className={clsx(style.option, {[style.active]: displayGrid})}
+                             onClick={() => setDisplayGrid(true)}/>
+                        <img src={Table} className={clsx(style.option, {[style.active]: !displayGrid})}
+                             onClick={() => setDisplayGrid(false)}/>
                     </div>
                 </div>
             </div>

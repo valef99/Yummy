@@ -3,6 +3,7 @@ import RecipeType from "../RecipeType/RecipeType";
 import style from "./RecipesTable.module.css"
 import {NavLink} from "react-router-dom";
 import Filter from "../Filter/Filter";
+import RecipesListData from "../../assets/data/food.json";
 
 function RecipesTable(props) {
     const {RecipesList} = props;
@@ -41,12 +42,13 @@ function RecipesTable(props) {
 
     return(
         <div>
-            <div className="row justify-self-end">
+            <div className="row justify-self-end mb-4">
                 <Filter
                     filterItem={filterItem}
                     setItem={setItem}
                     menuItems={menuItems}/>
             </div>
+            <p>You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
             <table className={`table ${style.table}`}>
                 <thead>
                 <tr>
