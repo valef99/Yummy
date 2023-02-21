@@ -7,6 +7,7 @@ import Recipes from "../Recipes/Recipes";
 import Info from "../Info/Info";
 import RecipeDetail from "../RecipeDetail/RecipeDetail";
 import logo from "../../assets/images/yummy_logo.png"
+import Default from "../Default/Default";
 
 function App() {
     const nav = [{url: "/", text: "Home", exact: true},
@@ -24,6 +25,7 @@ function App() {
                   <Route path="/recipes" element={<Recipes />}/>
                   <Route path="/info" element={<Info />}/>
                   <Route path="/recipes/:number" element={<RecipeDetail />}/>
+                  <Route path="*" element={<Default/>} />
               </Routes>
           </MainTemplate>
       </BrowserRouter>

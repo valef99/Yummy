@@ -3,4 +3,6 @@
 }
 button{
     width: fit-content;
+    color: #FFFAFF;
+    background-color: #FF6542 !important;
 }

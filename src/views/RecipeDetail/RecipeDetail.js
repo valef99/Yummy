@@ -67,33 +67,33 @@ function RecipeDetail(props) {
                     </div>
                     <div className="row">
                         <div className="col-5">
-                            <div className="d-flex flex-row">
+                            <div className="d-flex flex-row mb-3 mt-3">
                                 <img src={Time} className={style.ingredient}/>
                                 <p>{currentRecipe.readyInMinutes + " minutes"}</p>
                             </div>
-                            <div className="d-flex flex-row">
+                            <div className="d-flex flex-row mb-3">
                                 <img src={People} className={style.ingredient}/>
                                 <p>{currentRecipe.servings + " people"}</p>
                             </div>
-                            <p>Health Score</p>
+                            <p className="mb-2">Health Score</p>
                             <Progress striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row mt-3">
                         <div className="col">
                             <RecipeCategory id={id}/>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="row">
+            <div className="row mt-3">
                 <div className="col-4">
                     <RecipeType id= {id}/>
                 </div>
             </div>
             <div>
                 {ingredients &&
-                    <div className="row">
+                    <div className="row mt-5 mb-5">
                         {ingredients.map((ingredient) => {
                             return (
                                 <div className="d-flex flex-row align-items-center col-6">

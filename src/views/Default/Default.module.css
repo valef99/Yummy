@@ -1,0 +1,15 @@
+.text{
+    color: #FF6542;
+    font-size: 5vw;
+    font-weight: bold;
+}
+.textBottom{
+    margin-bottom: 120px;
+    color: #FF6542;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.error{
+    width: 500px;
+}

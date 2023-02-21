@@ -1,5 +1,5 @@
 .footer {
-    background: #242424;
+    background: #02040F;
     color: white;
     padding: 20px 0;
     left: 0;
@@ -45,4 +45,10 @@ img{
 
 .active{
     border-bottom: 1px solid #dd092f;
+}
+a {
+    color: #FFFAFF;
+}
+a:hover{
+    color: #FF6542;
 }

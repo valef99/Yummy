@@ -38,7 +38,7 @@ function Home() {
                 {recipeCards}
             </div>
             <div className="row justify-content-center">
-                <div className="col-2">
+                <div className="col-2 mb-5 pb-5">
                     <NavLink className="button btn btn-dark" to="/recipes">Let's cook!</NavLink>
                 </div>
 

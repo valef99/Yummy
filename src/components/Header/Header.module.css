@@ -1,6 +1,6 @@
 .navBar {
     background: white;
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid #FF6542;
     position: sticky;
     width: 100%;
     top: 0;
@@ -22,12 +22,12 @@
     font-weight: bold;
     text-transform: uppercase;
     padding: 5px 20px;
-    color: #242424 !important;
+    color: #FF6542 !important;
 }
 
 .navItem a.active {
-    color: #f90931 !important;
+    text-decoration: underline;
 }
 .navItem a:hover {
-    color: #ff4c60;
+    text-decoration: underline;
 }
