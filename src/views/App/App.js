@@ -10,9 +10,9 @@ import logo from "../../assets/images/yummy_logo.png"
 import Default from "../Default/Default";
 
 function App() {
-    const nav = [{url: "/", text: "Home", exact: true},
-        {url: "/recipes", text: "Recipes", exact: false},
-        {url: "/info", text: "Info", exact: true}];
+    const nav = [{url: "/", text: "Home", exact: "true"},
+        {url: "/recipes", text: "Recipes", exact: "false"},
+        {url: "/info", text: "Info", exact: "true"}];
 
   return (
       <BrowserRouter>

@@ -5,10 +5,13 @@
 
 .option {
     display: inline-block;
-    padding: 4px 16px;
+    padding: 4px 4px;
     cursor: pointer;
 }
 
+.option img{
+    width: 30px !important;
+}
 
 .option.active {
     background-color: white;

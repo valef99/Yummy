@@ -43,7 +43,7 @@ function RecipesCardsGrid(props) {
                     setItem={setItem}
                     menuItems={menuItems}/>
             </div>
-            <p>You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
+            <p class="pb-4">You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
             <div className={`row 
                     row-cols-${col.xs}
                     row-cols-sm-${col.sm}

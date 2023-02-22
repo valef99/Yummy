@@ -48,7 +48,7 @@ function RecipesTable(props) {
                     setItem={setItem}
                     menuItems={menuItems}/>
             </div>
-            <p>You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
+            <p class="pb-4">You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
             <table className={`table ${style.table}`}>
                 <thead>
                 <tr>

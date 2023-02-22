@@ -8,7 +8,7 @@ import {NavLink} from "react-router-dom";
 
 function Home() {
     var filteredList = [];
-    while(filteredList.length < 6){
+    while(filteredList.length < 9){
         var r = Math.floor(Math.random() * 99);
         if(filteredList.indexOf(r) === -1)
             filteredList.push(RecipesListData[r]);

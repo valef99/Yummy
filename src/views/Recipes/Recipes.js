@@ -15,10 +15,14 @@ function Recipes() {
             <div className="row">
                 <div className="col d-flex justify-content-end">
                     <div className={style.switch}>
-                        <img src={Grid} className={clsx(style.option, {[style.active]: displayGrid})}
-                             onClick={() => setDisplayGrid(true)}/>
-                        <img src={Table} className={clsx(style.option, {[style.active]: !displayGrid})}
-                             onClick={() => setDisplayGrid(false)}/>
+                        <div className={clsx(style.option, {[style.active]: displayGrid})}
+                             onClick={() => setDisplayGrid(true)}>
+                            <img src={Grid} />
+                        </div>
+                        <div className={clsx(style.option, {[style.active]: !displayGrid})}
+                             onClick={() => setDisplayGrid(false)}>
+                            <img src={Table} />
+                        </div>
                     </div>
                 </div>
             </div>
