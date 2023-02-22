@@ -24,7 +24,7 @@ const Header = (props) => {
 
     return(
         <div className={style.navBar}>
-            <Navbar expand="md" light>
+            <Navbar expand="md" light className="pb-0">
                 <div className="container d-flex flex-row">
 
                     <RouterLink to="/">

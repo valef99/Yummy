@@ -1,8 +1,12 @@
 .footer{
     position: fixed;
 }
-button{
-    width: fit-content;
+.buttonHome{
     color: #FFFAFF;
-    background-color: #FF6542 !important;
+    background-color: #FF6542;
+}
+.buttonHome:hover{
+    color: #FFFAFF;
+    text-decoration: underline;
+    background-color: #FF6542;
 }

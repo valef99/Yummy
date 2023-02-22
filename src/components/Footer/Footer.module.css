@@ -1,11 +1,12 @@
 .footer {
-    background: #FF6542;
-    color: white;
+    background: #FFFAFF;
+    color: #FF6542;
     padding: 20px 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #FF6542;
 }
 
 #course {
@@ -13,7 +14,9 @@
     margin-right: 30px;
     max-width:250px;
 }
-
+#course a, footer p{
+    font-weight: bold;
+}
 .logo {
     max-width: 80px;
     margin: 0 6px;
@@ -26,7 +29,7 @@ img{
 }
 
 .copyright {
-    border-left: 1px solid #FFFAFF;
+    border-left: 1px solid #FF6542;
     padding-left: 20px;
     justify-content: space-between;
     align-items: stretch;
@@ -41,13 +44,6 @@ img{
 }
 
 footer p{
-    color: #FFFAFF;
+    color: #FF6542;
     font-size: 20px;
-}
-footer a{
-    color: #FFFAFF;
-}
-footer a:hover{
-    color: #FFFAFF;
-    text-decoration: underline;
 }
