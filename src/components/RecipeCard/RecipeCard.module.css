@@ -3,17 +3,8 @@
     color: #635959;
     transition: all .2s;
 }
-a{
-    text-decoration: none;
-}
-
 .image {
     margin: auto;
-    transition: all .2s;
-}
-
-.title {
-    color: #242424;
 }
 
 .types {

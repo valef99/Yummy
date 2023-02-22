@@ -1,12 +1,12 @@
 import React from "react";
 import RecipeListData from "../../assets/data/food.json";
 import style from "./RecipeType.module.css";
-import Vegetarian from "../../assets/images/vegetarian.png";
-import VegetarianDisable from "../../assets/images/vegetarian_disable.png";
+import Vegetarian from "../../assets/images/Vegetarian.png";
+import VegetarianDisable from "../../assets/images/vegan_Disabled.png";
 import Vegan from "../../assets/images/vegan.png";
-import VeganDisable from "../../assets/images/vegan_disable.png";
-import GlutenFree from "../../assets/images/gluten_free.png";
-import GlutenFreeDisable from "../../assets/images/gluten_free_disable.png";
+import VeganDisable from "../../assets/images/vegan_Disabled.png";
+import GlutenFree from "../../assets/images/GlutenFree.png";
+import GlutenFreeDisable from "../../assets/images/GlutenFree_Disabled.png";
 import {UncontrolledTooltip} from "reactstrap";
 
 function RecipeType(props) {

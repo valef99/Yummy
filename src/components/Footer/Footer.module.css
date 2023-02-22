@@ -1,5 +1,5 @@
 .footer {
-    background: #02040F;
+    background: #FF6542;
     color: white;
     padding: 20px 0;
     left: 0;
@@ -27,13 +27,11 @@ img{
 }
 
 .copyright {
-    border-left: 1px solid #393939;
+    border-left: 1px solid #FFFAFF;
     padding-left: 20px;
     justify-content: space-between;
     align-items: stretch;
 }
-
-
 .footerNav{
     border-left: 1px solid #393939;
     padding-left: 20px;
@@ -43,12 +41,14 @@ img{
     display: inline-block;
 }
 
-.active{
-    border-bottom: 1px solid #dd092f;
+footer p{
+    color: #FFFAFF;
+    font-size: 20px;
 }
-a {
+footer a{
     color: #FFFAFF;
 }
-a:hover{
-    color: #FF6542;
+footer a:hover{
+    color: #FFFAFF;
+    text-decoration: underline;
 }

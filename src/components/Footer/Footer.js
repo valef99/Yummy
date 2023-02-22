@@ -9,15 +9,15 @@ function Footer(props) {
 
     return (
         <footer className={style.footer}>
-
             <div className="container-fluid">
-
                 <div className="row">
-
+                    <div className="col-md-6">
+                            <p>
+                                Progetto a cura di:<br/>Valeria Froio e Sofia Damaso
+                            </p>
+                    </div>
                     <div className="col-md-auto">
-
                         <div className={`d-flex ${style.copyright}`}>
-
                             <div id={style.course}>
                                 <a href={courseLink} target="_blank">
                                     {courseName}
@@ -35,15 +35,10 @@ function Footer(props) {
                                     <img src={unimib} alt="unimib"/>
                                 </a>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </footer>
     )
 
