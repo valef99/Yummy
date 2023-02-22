@@ -1,7 +1,5 @@
 import {React, useState} from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
-import style from "../../views/Recipes/Recipes.module.css";
-import clsx from "clsx";
 import Filter from "../Filter/Filter";
 import RecipesListData from "../../assets/data/food.json";
 
@@ -43,7 +41,7 @@ function RecipesCardsGrid(props) {
                     setItem={setItem}
                     menuItems={menuItems}/>
             </div>
-            <p class="pb-4">You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
+            <p className="pb-4">You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
             <div className={`row 
                     row-cols-${col.xs}
                     row-cols-sm-${col.sm}

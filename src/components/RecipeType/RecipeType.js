@@ -2,7 +2,7 @@ import React from "react";
 import RecipeListData from "../../assets/data/food.json";
 import style from "./RecipeType.module.css";
 import Vegetarian from "../../assets/images/vegetarian.png";
-import VegetarianDisable from "../../assets/images/vegan_Disabled.png";
+import VegetarianDisable from "../../assets/images/vegetarian_Disabled.png";
 import Vegan from "../../assets/images/vegan.png";
 import VeganDisable from "../../assets/images/vegan_Disabled.png";
 import GlutenFree from "../../assets/images/GlutenFree.png";
@@ -15,7 +15,7 @@ function RecipeType(props) {
     const types = {vegetarian: currentRecipe.vegetarian, vegan: currentRecipe.vegan, glutenFree: currentRecipe.glutenFree};
 
     return(
-        <div className="d-flex flex-row justify-content-evenly">
+        <div className="d-flex flex-row">
             {types.vegetarian ?
                 <div>
                     <img src={Vegetarian} id="vegetarian" className={style.types}/>

@@ -10,7 +10,7 @@ function RecipeCard(props) {
     const types = 0;
 
     return(
-        <NavLink to={`/recipes/${number}`}>
+        <NavLink className={style.link} to={`/recipes/${number}`}>
             <Card className={style.card}>
                 <CardImg onError={(event) => recipeDefaultImage(event)} loading="lazy" className={style.image} top
                          width="100%" src={image} alt={name}/>

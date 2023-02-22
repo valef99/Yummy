@@ -14,3 +14,6 @@
     transform: scale(1.02) translateY(-2%);
 
 }
+.link{
+    text-decoration: none !important;
+}
