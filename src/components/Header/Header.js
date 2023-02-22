@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from "reactstrap";
+import {Collapse, Nav, Navbar, NavbarToggler, NavItem} from "reactstrap";
 import {NavLink as RouterLink} from "react-router-dom";
 import style from "./Header.module.css"
 
@@ -11,13 +11,12 @@ const Header = (props) => {
     const itemList = navItems.map((item) => {
         return(
             <NavItem key={item.url} className={style.navItem}>
-                <NavLink exact={item.exact}
-                            tag={RouterLink}
+                <RouterLink exact={item.exact}
                             activeclassname={style.active}
                             to={item.url}
                             className="nav-link">
                     {item.text}
-                </NavLink>
+                </RouterLink>
             </NavItem>
         );
     });
