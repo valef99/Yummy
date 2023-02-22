@@ -39,7 +39,7 @@ function Home() {
             </div>
             <div className="row justify-content-center">
                 <div className="col-2 mb-5 pb-5">
-                    <NavLink className="button btn btn-dark" to="/recipes">Let's cook!</NavLink>
+                    <NavLink className={`btn ${style.buttonHome}`} to="/recipes">Let's cook!</NavLink>
                 </div>
 
             </div>

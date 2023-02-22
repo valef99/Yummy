@@ -13,7 +13,7 @@ function Footer(props) {
                 <div className="row">
                     <div className="col-md-6">
                             <p>
-                                Progetto a cura di:<br/>Valeria Froio e Sofia Damaso
+                                Progetto a cura di:<br/>Valeria Froio<br/>Sofia Damaso
                             </p>
                     </div>
                     <div className="col-md-auto">
