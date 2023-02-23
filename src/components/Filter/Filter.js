@@ -8,7 +8,7 @@ const Filter = ({ filterItem, setItem, menuItems }) => {
         <>
             <div className={`d-flex justify-content-start mt-3 ${style.containerButtons}`}>
                 <button type="checkbox"
-                    className={clsx(`btn-dark text-white p-1 px-3 me-2 fw-bold btn ${style.buttons}`, style.buttonActive)}
+                    className={`btn-dark text-white p-1 px-3 me-2 fw-bold btn ${style.buttons}`}
                     onClick={() => setItem(RecipeListData)}>
                     All
                 </button>
