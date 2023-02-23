@@ -3,10 +3,6 @@
     vertical-align: middle;
 }
 
-.pokemonImage img {
-    max-width: 80px;
-}
-
 .action {
     visibility: hidden;
     padding: 10px 6px;
@@ -14,4 +10,20 @@
 
 .table tr:hover .action {
     visibility: visible;
+}
+
+tr{
+    white-space: nowrap;
+
+}
+.table{
+    border-bottom-width: 1px;
+    border-bottom: #FF6542;
+}
+.containerTable{
+    background-color: #FFFFFF;
+}
+th{
+    font-weight: bold;
+    color: #FF6542;
 }

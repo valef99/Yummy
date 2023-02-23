@@ -35,7 +35,7 @@ function RecipesTable(props) {
                 <td>
                     <RecipeType id={recipe.id}/>
                 </td>
-                <td><NavLink className={style.action} to={`/recipes/${recipe.id}`}>Ricetta</NavLink></td>
+                <td className="text-start"><NavLink className={style.action} to={`/recipes/${recipe.id}`}>View more</NavLink></td>
             </tr>
         );
     });
@@ -49,20 +49,22 @@ function RecipesTable(props) {
                     menuItems={menuItems}/>
             </div>
             <p className="pb-4">You have <strong>{RecipesListData.length}</strong> recipes to explore!</p>
-            <table className={`table ${style.table}`}>
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {recipeTr}
-                </tbody>
-            </table>
+            <div className={`table rounded-3 p-4 ${style.containerTable}`}>
+                <table className={`table ${style.table}`}>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {recipeTr}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

@@ -16,6 +16,7 @@ function RecipeDetail(props) {
     const index = RecipeListData.map(recipe => recipe.id).indexOf(currentRecipe.id);
 
     const [recipeData, setRecipeData] = useState([]);
+    const [recipeKcal, setRecipeKcal] = useState([]);
     const steps = currentRecipe.analyzedInstructions[0].steps;
 
     useEffect(() => {
@@ -25,6 +26,19 @@ function RecipeDetail(props) {
             .then(res => {
                 if (isMounted)
                     setRecipeData(res);
+            })
+            .catch((error) => console.log("Error" + error));
+
+        return () => {isMounted = false};
+    },[id]);
+
+    useEffect(() => {
+        let isMounted = true;
+        fetch(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${apiKey}`)
+            .then(res => res.json())
+            .then(res => {
+                if (isMounted)
+                    setRecipeKcal(res);
             })
             .catch((error) => console.log("Error" + error));
 
@@ -41,6 +55,8 @@ function RecipeDetail(props) {
                 })
         });
     }
+
+    let kcal = recipeKcal.calories;
 
     return(
         <div className="container">
@@ -74,8 +90,19 @@ function RecipeDetail(props) {
                                 <img src={People} className={style.ingredient}/>
                                 <p><strong>{currentRecipe.servings}</strong> people</p>
                             </div>
-                            <h5 className="mb-1">Health Score</h5>
-                            <Progress className="mb-2" striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
+                            <div className="row d-flex align-items-center">
+                                <div className="col-8">
+                                    <h5 className="mb-1">Health Score</h5>
+                                    <Progress className="mb-2" striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
+                                </div>
+                                {kcal &&
+                                    <div className={`rounded-circle d-flex justify-content-center align-items-center ms-3 ${style.kcal}`}>
+                                        <p className="text-center">
+                                            {kcal.toString().substring(0, kcal.toString().length-1) + " Kcal"}
+                                        </p>
+                                    </div>
+                                }
+                            </div>
                         </div>
                     </div>
                     <div className="row mt-3">
