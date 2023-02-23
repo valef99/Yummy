@@ -9,6 +9,7 @@ import RecipeDetail from "../RecipeDetail/RecipeDetail";
 import logo from "../../assets/images/yummy_logo.png"
 import Default from "../Default/Default";
 import ScrollButton from "../../components/ScrollButton/ScrollButton"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 function App() {
     const nav = [{url: "/", text: "Home", exact: "true"},
@@ -25,7 +26,7 @@ function App() {
                   <Route path="/" element={<Home />}/>
                   <Route path="/recipes" element={<Recipes />}/>
                   <Route path="/info" element={<Info />}/>
-                  <Route path="/recipes/:number" element={<RecipeDetail />}/>
+                  <Route path="/recipes/:number" element={<Wrapper />}/>
                   <Route path="*" element={<Default/>} />
               </Routes>
               <ScrollButton />

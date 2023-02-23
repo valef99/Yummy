@@ -1,12 +1,33 @@
 .footer{
     position: fixed;
 }
-.buttonHome{
-    color: #FFFAFF;
-    background-color: #FF6542;
+.wallpaper img, .wallpaper h1, .wallpaper div {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
 }
-.buttonHome:hover{
-    color: #FFFAFF;
-    text-decoration: underline;
-    background-color: #FF6542;
+.wallpaper{
+    margin-top: -50px;
+    justify-items: center;
+}
+.wallpaper img{
+    object-fit: cover;
+    height: 50vh;
+}
+.wallpaper h1{
+    justify-items: center;
+    align-self: center;
+}
+.wallpaper div{
+    align-self: end;
+}
+.animation{
+    height: 120px;
+}
+.subtitle{
+    margin-left: -3.25rem;
+}
+.animationContainer{
+    margin-left: -3.5rem;
 }
