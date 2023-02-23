@@ -8,7 +8,7 @@ function MainTemplate(props) {
     return(
         <div className={`position-relative min-vh-100 ${style.backgroundContainer}`}>
             <Header logo={logo} navItems={navItems}/>
-            <div className="py-5">{children}</div>
+            <div className={`py-5 ${style.children}`}>{children}</div>
             <Footer courseName={footerCourseName} courseLink={footerCourseLink}/>
         </div>
     );
