@@ -1,6 +1,5 @@
 import React from "react";
-import RecipeType from "../RecipeType/RecipeType";
-import {Card, CardBody, CardImg, CardText, CardTitle} from "reactstrap";
+import {Card, CardBody, CardImg, CardTitle} from "reactstrap";
 import style from "./RecipeCard.module.css"
 import {recipeDefaultImage, checkNumber} from "../../utility/utility";
 import {NavLink} from "react-router-dom";
@@ -17,7 +16,7 @@ function RecipeCard(props) {
                     <CardImg onError={(event) => recipeDefaultImage(event)} loading="lazy" className={style.image} top
                              width="100%" src={image} alt={name}/>
                     <CardBody className="d-flex flex-row justify-content-between">
-                        <CardTitle tag="h5">{name}</CardTitle>
+                        <CardTitle tag="h4">{name}</CardTitle>
                         <p className="align-self-end">#{number}</p>
                     </CardBody>
                 </Card>

@@ -14,5 +14,13 @@
     background-color: #FF6542;
 }
 .buttons:hover{
-   text-decoration: underline;
+    text-decoration: underline;
+    border-color: #FF6542 !important;
+    background-color: #FFFAFF;
+    color: #FF6542 !important;
+}
+.buttons:focus{
+    border-color: #FF6542 !important;
+    background-color: #FFFAFF;
+    color: #FF6542 !important;
 }
