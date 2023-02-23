@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FaAngleDoubleUp, FaArrowCircleUp, FaChevronCircleUp} from 'react-icons/fa';
+import {FaChevronCircleUp} from 'react-icons/fa';
 import style from "./ScrollButton.module.css"
 
 const ScrollButton = () =>{
