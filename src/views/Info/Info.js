@@ -1,8 +1,9 @@
 import React from "react";
 import ValeriaImg from "../../assets/images/valeria.jpeg"
 import SofiaImg from "../../assets/images/sofia.jpg"
-import style from "../../components/RecipeCard/RecipeCard.module.css";
 import {Card, CardBody, CardImg, CardTitle} from "reactstrap";
+import Github from "../../assets/images/github_icon.png";
+import style from "./Info.module.css";
 
 
 function Info() {
@@ -36,6 +37,14 @@ function Info() {
                             <p>
                                 Ciao sono vale e questa è la mia descrizione
                             </p>
+                            <div className="row mt-3">
+                                <div className="col">
+                                    <a href="https://github.com/valef99" className="d-flex flex-row align-items-center">
+                                        <img src={Github} className={style.github}/>
+                                        <p className={style.username}>valef99</p>
+                                    </a>
+                                </div>
+                            </div>
                         </CardBody>
                     </Card>
                 </div>
@@ -47,6 +56,14 @@ function Info() {
                             <p>
                                 Ciao sono sofi e questa è la mia descrizione
                             </p>
+                            <div className="row mt-3">
+                                <div className="col">
+                                    <a href="https://github.com/sofidamaso" className="d-flex flex-row align-items-center">
+                                        <img src={Github} className={style.github}/>
+                                        <p className={style.username}>sofidamaso</p>
+                                    </a>
+                                </div>
+                            </div>
                         </CardBody>
                     </Card>
                 </div>

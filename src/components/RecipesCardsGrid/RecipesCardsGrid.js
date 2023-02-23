@@ -2,6 +2,8 @@ import {React, useState} from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import Filter from "../Filter/Filter";
 import RecipesListData from "../../assets/data/food.json";
+import Default from "../../views/Default/Default";
+import {checkNumber} from "../../utility/utility";
 
 function RecipesCardsGrid(props) {
     const {RecipesList, col} = props;
