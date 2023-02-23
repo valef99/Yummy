@@ -5,6 +5,9 @@ h1, h2, h3, h4, h5{
     font-weight: 600;
     color: #FF6542;
 }
+h1{
+    font-size: 60px;
+}
 *{
     font-family: 'Poppins';
     font-weight: 400;
@@ -17,4 +20,21 @@ a{
 a:hover{
     text-decoration: underline;
     color: #FF6542;
+}
+.buttons{
+    border-color: transparent !important;
+    width: fit-content;
+    color: #FFFAFF;
+    background-color: #FF6542;
+}
+.buttons:hover{
+    text-decoration: underline;
+    border-color: #FF6542 !important;
+    background-color: #FFFAFF;
+    color: #FF6542 !important;
+}
+.buttons:focus{
+    border-color: #FF6542 !important;
+    background-color: #FFFAFF;
+    color: #FF6542 !important;
 }

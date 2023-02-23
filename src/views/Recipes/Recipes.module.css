@@ -10,10 +10,11 @@
 }
 
 .option img{
-    width: 30px !important;
+    width: 40px;
 }
 
 .option.active {
     background-color: white;
     border-radius: 6px;
 }
+

@@ -8,14 +8,14 @@ const Filter = ({ filterItem, setItem, menuItems }) => {
         <>
             <div className={`d-flex justify-content-start mt-3 ${style.containerButtons}`}>
                 <button type="checkbox"
-                    className={`btn-dark text-white p-1 px-3 me-2 fw-bold btn ${style.buttons}`}
+                    className="p-1 px-2 me-2 btn fw-bold buttons"
                     onClick={() => setItem(RecipeListData)}>
                     All
                 </button>
                 {menuItems.map((Val, id) => {
                     return (
                         <button
-                            className={`btn-dark text-white p-1 px-2 me-2 btn fw-bold ${style.buttons}`}
+                            className= "p-1 px-2 me-2 btn fw-bold buttons"
                             onClick={() => filterItem(Val)}
                             key={id}>
                             {Val}

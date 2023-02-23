@@ -17,11 +17,11 @@ function Recipes() {
                     <div className={style.switch}>
                         <div className={clsx(style.option, {[style.active]: displayGrid})}
                              onClick={() => setDisplayGrid(true)}>
-                            <img src={Grid} />
+                            <img src={Grid}/>
                         </div>
                         <div className={clsx(style.option, {[style.active]: !displayGrid})}
                              onClick={() => setDisplayGrid(false)}>
-                            <img src={Table} />
+                            <img src={Table}/>
                         </div>
                     </div>
                 </div>

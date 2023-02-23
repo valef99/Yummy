@@ -7,20 +7,3 @@
     padding: 0.375rem 0.75rem;
 }
 
-.buttons{
-    border-color: transparent !important;
-    width: fit-content;
-    color: #FFFAFF;
-    background-color: #FF6542;
-}
-.buttons:hover{
-    text-decoration: underline;
-    border-color: #FF6542 !important;
-    background-color: #FFFAFF;
-    color: #FF6542 !important;
-}
-.buttons:focus{
-    border-color: #FF6542 !important;
-    background-color: #FFFAFF;
-    color: #FF6542 !important;
-}
