@@ -9,7 +9,7 @@ import MainDish from "../../assets/images/main-dish.png";
 import SideDish from "../../assets/images/side-dish.png";
 import {UncontrolledTooltip} from "reactstrap";
 
-function RecipeType(props) {
+function RecipeCategory(props) {
     const {id} = props;
     const currentRecipe = RecipeListData.filter((recipe) => recipe.id === id)[0];
     const category = {appetizer: currentRecipe.dishTypes.some((category) => category === "appetizer"),
@@ -80,4 +80,4 @@ function RecipeType(props) {
     );
 }
 
-export default RecipeType;
+export default RecipeCategory;

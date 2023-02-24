@@ -143,7 +143,7 @@ function About() {
                 <div className="col d-flex flex-column align-items-center">
                     <p>Se vuoi saperne di più leggi la documentazione e accedi al repository:</p>
                     <div className="d-flex flex-row">
-                        <a className="btn buttons mt-3 px-4 me-4" href="https://docs.google.com/document/d/1QspeVv1lZRMoEAl3l0GxeAxbcsj-COsoRDtLQLe77mA/edit?usp=sharing">
+                        <a className="btn buttons mt-3 px-4 me-4" href="https://docs.google.com/document/d/14BGtnTn77nNWpks8TZLnUIu9761C77BirlMJoCvfP3Y/edit?usp=sharing">
                             Doc
                         </a>
                         <a className="btn buttons mt-3 px-3" href="https://github.com/valef99/Yummy">
