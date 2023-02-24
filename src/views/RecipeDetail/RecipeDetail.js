@@ -75,7 +75,7 @@ function RecipeDetail(props) {
                     <img src={currentRecipe.image} className={`ps-5 ${style.recipe}`}/>
                     {kcal &&
                         <div className={`rounded-circle d-flex justify-content-center align-items-center m-2 ${style.kcal}`}>
-                            <p className="text-center">
+                            <p className="text-center small">
                                 {kcal.toString().substring(0, kcal.toString().length-1) + " Kcal"}
                             </p>
                         </div>
