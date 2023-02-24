@@ -39,11 +39,11 @@ function About() {
                 </div>
             </div>
             <div className="row mb-5 pb-5">
-                <div className="col-md-5 mt-md-0 mt-3">
-                    <Card className="align-items-center py-5">
+                <div className="col-lg-5 mt-lg-0 mt-3">
+                    <Card className={`align-items-center py-5 ${style.card}`}>
                         <CardImg className={`mb-4 ${style.teamImg}`} src={ValeriaImg} alt="valeria"/>
                         <CardBody className="px-5">
-                            <CardTitle tag="h3" className={`h3 ${style.title}`}>Valeria Froio</CardTitle>
+                            <CardTitle tag="h3" className={`h3 mb-3 ${style.title}`}>Valeria Froio</CardTitle>
                             <p className="mb-5">
                                 “In fondo imparare a programmare in un linguaggio è come imparare una nuova lingua, solo che la controparte con cui si comunica è composta da parti elettroniche e non organi umani”.
                             </p>
@@ -88,13 +88,14 @@ function About() {
                         </CardBody>
                     </Card>
                 </div>
-                <div className="col-md-5 offset-md-2 mt-md-0 mt-5">
-                    <Card className="align-items-center py-5">
+                <div className="col-lg-5 offset-lg-2 mt-lg-0 mt-5">
+                    <Card className={`align-items-center py-5 h-100 ${style.card}`}>
                         <CardImg className={`mb-4 ${style.teamImg}`} src={SofiaImg} alt="sofia"/>
                         <CardBody className="px-5">
-                            <CardTitle tag="h3" className={`h3 ${style.title}`}>Sofia Damaso</CardTitle>
+                            <CardTitle tag="h3" className={`h3 mb-3 ${style.title}`}>Sofia Damaso</CardTitle>
                             <p className="mb-5">
-                                "Quando dici: "Ho scritto un programma che manda in crash Windows", la gente ti guarda stupita e ti dice: "Hey, ce l'ho nel sistema, *gratis*"."
+                                "Questa vita è l'algoritmo di un programma che ora è vero"
+                                <br/> <br/> <br/>
                             </p>
                             <div className="row mt-3">
                                 <div className="col d-flex flex-row align-items-center">
@@ -140,10 +141,15 @@ function About() {
             </div>
             <div className="row">
                 <div className="col d-flex flex-column align-items-center">
-                    <p>Se vuoi saperne di più leggi la documentazione:</p>
-                    <a className="btn buttons mt-3 px-4" href="https://docs.google.com/document/d/1QspeVv1lZRMoEAl3l0GxeAxbcsj-COsoRDtLQLe77mA/edit?usp=sharing">
-                        Doc
-                    </a>
+                    <p>Se vuoi saperne di più leggi la documentazione e accedi al repository:</p>
+                    <div className="d-flex flex-row">
+                        <a className="btn buttons mt-3 px-4 me-4" href="https://docs.google.com/document/d/1QspeVv1lZRMoEAl3l0GxeAxbcsj-COsoRDtLQLe77mA/edit?usp=sharing">
+                            Doc
+                        </a>
+                        <a className="btn buttons mt-3 px-3" href="https://github.com/valef99/Yummy">
+                            Github
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
