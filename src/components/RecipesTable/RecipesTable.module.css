@@ -12,10 +12,7 @@
     visibility: visible;
 }
 
-tr{
-    white-space: nowrap;
 
-}
 .table{
     border-bottom-width: 1px;
     border-bottom: #FF6542;

@@ -30,8 +30,7 @@
     transform: scale(1.2);
 }
 
-.copyright {
-    border-bottom: 1px solid #FF6542;
+.copyright{
     padding-left: 20px;
     justify-content: space-between;
     align-items: stretch;

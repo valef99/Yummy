@@ -71,17 +71,24 @@ function RecipeDetail(props) {
                 }
             </div>
             <div className={`row rounded-3 ${style.containers}`}>
-                <div className="col-4 p-0 rounded-3">
-                    <img src={currentRecipe.image} className={`rounded-start ${style.recipe}`}/>
+                <div className={`col-4 p-0 rounded-3 d-grid align-items-start mb-5 mt-5 ${style.grid}`}>
+                    <img src={currentRecipe.image} className={`ps-5 ${style.recipe}`}/>
+                    {kcal &&
+                        <div className={`rounded-circle d-flex justify-content-center align-items-center m-2 ${style.kcal}`}>
+                            <p className="text-center">
+                                {kcal.toString().substring(0, kcal.toString().length-1) + " Kcal"}
+                            </p>
+                        </div>
+                    }
                 </div>
-                <div className="col-8 p-4">
+                <div className="col-8 p-5">
                     <div className="row">
                         <div className="col">
                             <h2>{currentRecipe.title}</h2>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-5">
+                        <div className="col-6">
                             <div className="d-flex flex-row mb-3 mt-3 align-items-center">
                                 <img src={Time} className={style.ingredient}/>
                                 <p><strong>{currentRecipe.readyInMinutes}</strong> minutes</p>
@@ -90,30 +97,19 @@ function RecipeDetail(props) {
                                 <img src={People} className={style.ingredient}/>
                                 <p><strong>{currentRecipe.servings}</strong> people</p>
                             </div>
-                            <div className="row d-flex align-items-center">
-                                <div className="col-8">
-                                    <h5 className="mb-1">Health Score</h5>
-                                    <Progress className="mb-2" striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
-                                </div>
-                                {kcal &&
-                                    <div className={`rounded-circle d-flex justify-content-center align-items-center ms-3 ${style.kcal}`}>
-                                        <p className="text-center">
-                                            {kcal.toString().substring(0, kcal.toString().length-1) + " Kcal"}
-                                        </p>
-                                    </div>
-                                }
-                            </div>
                         </div>
-                    </div>
-                    <div className="row mt-3">
-                        <div className="col mb-2 d-flex flex-row align-items-center">
-                            <h5 className="mb-1 me-2">Categories</h5>
+
+                        <div className="col-6 mb-2 d-flex flex-row align-items-center">
+                            <h5 className="mb-1 me-4">Categories</h5>
                             <RecipeCategory id={id}/>
                         </div>
-                    </div>
-                    <div className="row mt-3">
-                        <div className="col-4 mb-2 d-flex flex-row align-items-center">
-                            <h5 className="mb-1 me-2">Diets</h5>
+
+                        <div className="col-5">
+                            <h5 className="mb-3">Health Score</h5>
+                            <Progress className="mb-2" striped color="success" value={currentRecipe.healthScore}>{currentRecipe.healthScore + "%"}</Progress>
+                        </div>
+                        <div className="col-6 offset-1 mb-2 d-flex flex-row align-items-center">
+                            <h5 className="mb-1 me-4">Diets</h5>
                             <RecipeType id= {id}/>
                         </div>
                     </div>
@@ -121,11 +117,11 @@ function RecipeDetail(props) {
             </div>
             <div>
                 {ingredients &&
-                    <div className={`row mt-5 mb-5 p-3 rounded-3 ${style.containers}`}>
-                        <h2 className="pb-2">Ingredients</h2>
+                    <div className={`row mt-5 mb-5 p-5 rounded-3 ${style.containers}`}>
+                        <h2 className="pb-3">Ingredients</h2>
                         {ingredients.map((ingredient) => {
                             return (
-                                <div className="d-flex flex-row align-items-center col-6">
+                                <div className="d-flex flex-row align-items-center col-6 pb-3">
                                     <img src={ingredient.src} alt={ingredient.name} className={style.ingredient}/>
                                     <div>
                                         <p><strong>{ingredient.quantity + " " + ingredient.unit}</strong> {ingredient.name}</p>
@@ -136,13 +132,13 @@ function RecipeDetail(props) {
                     </div>
                 }
             </div>
-            <div className={`row p-3 rounded-3 ${style.containers}`}>
+            <div className={`row p-5 rounded-3 ${style.containers}`}>
                 <div className="col">
-                    <h2>Let's cook!</h2>
+                    <h2 className="pb-3">Let's cook!</h2>
                     <ol>
                         {steps.map((stepi) => {
                             return (
-                                <li>
+                                <li className="pb-3">
                                     {stepi.step}
                                 </li>
                             );

@@ -11,16 +11,19 @@ function RecipeCard(props) {
     const types = 0;
 
     return(
-            <NavLink className={style.link} to={`/recipes/${number}`}>
                 <Card className={style.card}>
-                    <CardImg onError={(event) => recipeDefaultImage(event)} loading="lazy" className={style.image} top
-                             width="100%" src={image} alt={name}/>
+                    <div className={`d-grid align-items-start ${style.cardGrid}`}>
+                        <NavLink className={style.link} to={`/recipes/${number}`}>
+                        <CardImg onError={(event) => recipeDefaultImage(event)} loading="lazy" className={style.image} top
+                                 width="100%" src={image} alt={name}/>
+                        </NavLink>
+                        <p className={`p-1  ${style.number}`}>#{number}</p>
+                    </div>
+
                     <CardBody className="d-flex flex-row justify-content-between">
                         <CardTitle tag="h4">{name}</CardTitle>
-                        <p className="align-self-end">#{number}</p>
                     </CardBody>
                 </Card>
-            </NavLink>
     );
 }
 
