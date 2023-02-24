@@ -3,8 +3,6 @@ import {Card, CardBody, CardImg, CardTitle} from "reactstrap";
 import style from "./RecipeCard.module.css"
 import {recipeDefaultImage, checkNumber} from "../../utility/utility";
 import {NavLink} from "react-router-dom";
-import Default from "../../views/Default/Default";
-import recipeListData from "../../assets/data/food.json";
 
 function RecipeCard(props) {
     const {name, number, image} = props;

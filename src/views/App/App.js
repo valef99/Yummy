@@ -5,7 +5,6 @@ import Home from "../Home/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Recipes from "../Recipes/Recipes";
 import About from "../About/About";
-import RecipeDetail from "../RecipeDetail/RecipeDetail";
 import logo from "../../assets/images/yummy_logo.png"
 import Default from "../Default/Default";
 import ScrollButton from "../../components/ScrollButton/ScrollButton"

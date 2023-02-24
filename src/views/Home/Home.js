@@ -1,7 +1,5 @@
 import {React, useEffect, useRef} from "react";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
-import RecipeListData from "../../assets/data/food.json"
-import RecipesCardsGrid from "../../components/RecipesCardsGrid/RecipesCardsGrid";
 import RecipesListData from "../../assets/data/food.json";
 import style from "./Home.module.css"
 import {NavLink} from "react-router-dom";
@@ -27,15 +25,15 @@ function Home() {
         );
     });
     const animation= useRef(null);
-useEffect(() => {
-    lottie.loadAnimation({
-        container: animation.current, // Required
-        renderer: 'svg', // Required
-        loop: true, // Optional
-        autoplay: true, // Optional
-        animationData: require('../../assets/data/dado.json')
-    })
-}, []);
+    useEffect(() => {
+        lottie.loadAnimation({
+            container: animation.current, // Required
+            renderer: 'svg', // Required
+            loop: true, // Optional
+            autoplay: true, // Optional
+            animationData: require('../../assets/data/dado.json')
+        })
+    }, []);
 
     return(
         <div>
