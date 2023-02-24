@@ -26,6 +26,7 @@
     padding: 5px 20px;
     color: #FF6542 !important;
     transition: opacity 300ms, transform 300ms;
+    font-size: 1.2rem;
 }
 
 .navItem a:focus, .navItem a:hover{

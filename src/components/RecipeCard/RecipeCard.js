@@ -16,7 +16,7 @@ function RecipeCard(props) {
                     <CardImg onError={(event) => recipeDefaultImage(event)} loading="lazy" className={style.image} top
                              width="100%" src={image} alt={name}/>
                     <CardBody className="d-flex flex-row justify-content-between">
-                        <CardTitle tag="h4">{name}</CardTitle>
+                        <CardTitle tag="h5">{name}</CardTitle>
                         <p className="align-self-end">#{number}</p>
                     </CardBody>
                 </Card>

@@ -1,6 +1,6 @@
 import React from "react";
-import ValeriaImg from "../../assets/images/valeria.jpeg";
-import SofiaImg from "../../assets/images/sofia.jpg";
+import ValeriaImg from "../../assets/images/valeria.png";
+import SofiaImg from "../../assets/images/sofia.png";
 import Fifty from "../../assets/images/50s.png";
 import Gaming from "../../assets/images/game.png";
 import Photography from "../../assets/images/photography.png";
@@ -17,32 +17,35 @@ function Info() {
     return(
         <div className="container">
             <div className="row">
-                <div className={`col mb-5 p-3 rounded-3 ${style.background}`} >
+                <div className={`col mb-5 p-5 rounded-3 ${style.background}`} >
                     <h2>Il progetto Yummy</h2>
-                    <p>
-                        Questo progetto nasce per il corso di Applicazioni Web e il suo obiettivo è quello di fornire una
-                        piattaforma in cui si possono reperire alcune ricette di piatti particolari, inoltre per ogni pietanza
-                        è possibile accedere ad alcuni dettagli significativi, come la tipologia di dieta, la tipogia di
-                        piatto e quanto esso è salutare in una scala da 0 a 100. <br/>
-                        Tutte le informazioni sono reperite tramite chiamata alla
-                        <strong><a href="https://spoonacular.com/food-api"> API Spoonacular</a></strong> e tramite un
-                        file JSON, anch'esso ottenuto tramite chiamata alla API.
+                    <p className="mt-4">
+                        Questo progetto nasce per il corso di <strong>Applicazioni Web</strong> e il suo obiettivo è quello di fornire un ricettario di piatti
+                        particolari, originali e accessibili online. <br/>
+                        Il sito offre una vasta selezione di ricette per soddisfare i gusti e le esigenze di tutti gli utenti.
+                    </p>
+                    <p className="mt-3">
+                        Sei una persona attenta alla linea? Con <strong>Yummy!</strong> puoi conteggiare le calorie e ottenere l'health score della ricetta, per aiutarti a mangiare in modo sano ed equilibrato. <br/>
+                        <strong>Yummy!</strong> si adatta alle esigenze di tutti, proponendo una vasta scelta di piatti vegani, vegetariani e gluten free. <br/>
+                        In ogni ricetta puoi trovare, oltre alla lista degli ingredienti, un pratico tutorial passo-passo per la preparazione. <br/>
+                        Tutte le informazioni sono reperite tramite chiamate all'<a href="https://spoonacular.com/food-api"><strong>API Spoonacular</strong></a>. <br/>
+                        <strong>Yummy!</strong> è il tuo ricettario online completo e facile da utilizzare, che ti permetterà di scoprire nuovi sapori e di sperimentare in cucina, senza rinunciare alla salute e al benessere.
                     </p>
                 </div>
             </div>
-            <div className="row mt-5">
+            <div className="row m-5">
                 <div className="col">
                     <h2>Chi siamo?</h2>
                 </div>
             </div>
             <div className="row mb-5 pb-5">
-                <div className="col-5">
-                    <Card>
-                        <CardImg width="100%" src={ValeriaImg} alt="valeria"/>
-                        <CardBody>
+                <div className="col-md-5 mt-md-0 mt-3">
+                    <Card className="align-items-center py-5">
+                        <CardImg className={`mb-4 ${style.teamImg}`} src={ValeriaImg} alt="valeria"/>
+                        <CardBody className="px-5">
                             <CardTitle tag="h3" className={`h3 ${style.title}`}>Valeria Froio</CardTitle>
-                            <p>
-                                Ciao sono vale e questa è la mia frase
+                            <p className="mb-5">
+                                “In fondo imparare a programmare in un linguaggio è come imparare una nuova lingua, solo che la controparte con cui si comunica è composta da parti elettroniche e non organi umani”.
                             </p>
                             <div className="row mt-3">
                                 <div className="col d-flex flex-row align-items-center">
@@ -67,7 +70,7 @@ function Info() {
                                 </div>
                             </div>
 
-                            <div className={`row mt-4 pt-4 ${style.contact}`}>
+                            <div className={`row w-100 mt-4 pt-4 ${style.contact}`}>
                                 <div className="col">
                                     <h5>Contact me</h5>
                                     <div className="d-flex flex-row align-content-center">
@@ -85,13 +88,13 @@ function Info() {
                         </CardBody>
                     </Card>
                 </div>
-                <div className="col-5 offset-2">
-                    <Card>
-                        <CardImg width="100%" src={SofiaImg} alt="sofia"/>
-                        <CardBody>
+                <div className="col-md-5 offset-md-2 mt-md-0 mt-5">
+                    <Card className="align-items-center py-5">
+                        <CardImg className={`mb-4 ${style.teamImg}`} src={SofiaImg} alt="sofia"/>
+                        <CardBody className="px-5">
                             <CardTitle tag="h3" className={`h3 ${style.title}`}>Sofia Damaso</CardTitle>
-                            <p>
-                                Ciao sono sofi e questa è la mia frase
+                            <p className="mb-5">
+                                "Quando dici: "Ho scritto un programma che manda in crash Windows", la gente ti guarda stupita e ti dice: "Hey, ce l'ho nel sistema, *gratis*"."
                             </p>
                             <div className="row mt-3">
                                 <div className="col d-flex flex-row align-items-center">
@@ -116,7 +119,7 @@ function Info() {
                                 </div>
                             </div>
 
-                            <div className={`row mt-4 pt-4 ${style.contact}`}>
+                            <div className={`row mt-4 pt-4 w-100 ${style.contact}`}>
                                 <div className="col">
                                     <h5>Contact me</h5>
                                     <div className="d-flex flex-row align-content-center">
