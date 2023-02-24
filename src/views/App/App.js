@@ -14,7 +14,7 @@ import Wrapper from "../../components/Wrapper/Wrapper"
 function App() {
     const nav = [{url: "/", text: "Home", exact: "true"},
         {url: "/recipes", text: "Recipes", exact: "false"},
-        {url: "/info", text: "About us", exact: "true"}];
+        {url: "/about", text: "About us", exact: "true"}];
 
   return (
       <BrowserRouter>
@@ -24,7 +24,7 @@ function App() {
               <Routes>
                   <Route path="/" element={<Home />}/>
                   <Route path="/recipes" element={<Recipes />}/>
-                  <Route path="/info" element={<About />}/>
+                  <Route path="/about" element={<About />}/>
                   <Route path="/recipes/:number" element={<Wrapper />}/>
                   <Route path="*" element={<Default/>} />
               </Routes>
