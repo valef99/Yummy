@@ -9,11 +9,11 @@ import CS from "../../assets/images/programming.png";
 import {Card, CardBody, CardImg, CardTitle, UncontrolledTooltip} from "reactstrap";
 import Github from "../../assets/images/github_icon.png";
 import Linkedin from "../../assets/images/linkedin_icon.png";
-import style from "./Info.module.css";
+import style from "./About.module.css";
 import RecipeListData from "../../assets/data/food.json";
 
 
-function Info() {
+function About() {
     return(
         <div className="container">
             <div className="row">
@@ -150,4 +150,4 @@ function Info() {
     );
 }
 
-export default Info;
+export default About;

@@ -24,11 +24,6 @@
     margin: 20px 0;
 }
 
-.recipe{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
 .ingredient {
    width: 10%;
     margin-right: 20px;
@@ -49,4 +44,16 @@ p{
 }
 .kcal p{
     color: #FFFAFF;
+}
+
+.recipe, .kcal{
+    grid-row-start: 1;
+    grid-column-end: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+}
+
+.grid{
+    justify-items: end;
+    width: fit-content;
 }
