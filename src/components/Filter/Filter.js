@@ -1,7 +1,6 @@
 import {React, useState} from "react";
 import RecipeListData from "../../assets/data/food.json"
-import style from "./Filter.module.css"
-import clsx from "clsx";
+import style from "./Filter.module.css";
 
 const Filter = ({ filterItem, setItem, menuItems }) => {
     return (

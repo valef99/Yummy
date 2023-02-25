@@ -5,34 +5,23 @@
     padding: 4px;
     text-transform: uppercase;
 }
-
-.prev {
-    padding-left: 0;
-    font-size: 40px;
-}
-.next {
-    padding-right: 0;
-    margin-left: auto;
+.prev, .next {
     font-size: 40px;
 }
 .prev:hover, .next:hover{
     transform: scale(1.2);
     text-decoration: none;
 }
-
 .types {
     margin: 20px 0;
 }
-
 .ingredient {
    width: 10%;
     margin-right: 20px;
 }
-
 p{
     margin-bottom: 0;
 }
-
 .containers{
     background-color: #FFFFFF;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
@@ -45,14 +34,12 @@ p{
 .kcal p{
     color: #FFFAFF;
 }
-
 .recipe, .kcal{
     grid-row-start: 1;
     grid-column-end: 1;
     grid-row-end: 1;
     grid-column-start: 1;
 }
-
 .grid{
     justify-items: end;
     width: fit-content;

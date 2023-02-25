@@ -2,17 +2,14 @@
     display: flex;
     justify-content: center;
 }
-
 .option {
     display: inline-block;
     padding: 4px 4px;
     cursor: pointer;
 }
-
 .option img{
     width: 40px;
 }
-
 .option.active {
     background-color: #FFFAFF;
     border-radius: 6px;

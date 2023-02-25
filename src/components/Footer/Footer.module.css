@@ -1,6 +1,5 @@
 .footer {
     background: white;
-    color: #FF6542;
     padding: 20px 0;
     left: 0;
     right: 0;
@@ -8,35 +7,23 @@
     width: 100%;
     border-top: 2px solid #FF6542;
 }
-.footer h1{
-    font-size: 40px;
-}
-
-#course {
-    font-size: 17px;
-}
-
 .logo {
     max-width: 80px;
     margin: 0 6px;
     align-self: center;
     background: white;
 }
-
 .footer img{
     width: 70%;
 }
 .footer img:hover{
     transform: scale(1.2);
 }
-
 .copyright{
     padding-left: 20px;
     justify-content: space-between;
     align-items: stretch;
 }
-
 footer p{
     color: #FF6542;
-    font-size: 15px;
 }

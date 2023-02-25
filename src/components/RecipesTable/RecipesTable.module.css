@@ -1,18 +1,13 @@
-
 .table td {
     vertical-align: middle;
 }
-
 .action {
     visibility: hidden;
     padding: 10px 6px;
 }
-
 .table tr:hover .action {
     visibility: visible;
 }
-
-
 .table{
     border-bottom-width: 1px;
     border-bottom: #FF6542;

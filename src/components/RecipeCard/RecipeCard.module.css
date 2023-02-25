@@ -8,7 +8,6 @@
     margin: auto;
     border-radius: var(--bs-card-inner-border-radius);
 }
-
 .types {
     margin-top: 20px;
 }
@@ -19,11 +18,9 @@
 .cardGrid{
     border-radius: var(--bs-card-inner-border-radius);
 }
-
 .link{
     text-decoration: none !important;
 }
-
 .number, .link{
    grid-column-end: 1;
     grid-column-start: 1;

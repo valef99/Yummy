@@ -1,25 +1,9 @@
-.button-active{
-    background-color: grey !important;
-}
 .containerButtons{
     background-color: #FFFAFF;
     border-radius: 0.375rem;
     padding: 0.375rem 0.75rem;
 }
-
 .buttons{
     border-color: transparent !important;
     width: fit-content;
-    color: #FFFAFF;
-    background-color: #FF6542;
-}
-.buttons:hover{
-    border-color: #FF6542 !important;
-    background-color: #FFFAFF;
-    color: #FF6542 !important;
-}
-.buttons:focus{
-    border-color: #FF6542 !important;
-    background-color: #FFFAFF;
-    color: #FF6542 !important;
 }

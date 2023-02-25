@@ -24,7 +24,7 @@ function Footer(props) {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col">
-                        <h1 className="text-center pb-3 pt-3">Yummy!</h1>
+                        <h3 className="text-center pb-3 pt-3">Yummy!</h3>
                     </div>
                 </div>
                 <div className="row">
@@ -51,7 +51,7 @@ function Footer(props) {
                 </div>
 
                 <div className="row d-flex justify-content-center">
-                    <p className="text-center mt-4">
+                    <p className="text-center mt-4 small">
                         Copyright © 2023 Yummy! All right reserved <br/>Valeria Froio and Sofia Damaso
                     </p>
                 </div>
