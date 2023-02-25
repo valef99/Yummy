@@ -141,9 +141,9 @@ function About() {
             </div>
             <div className="row">
                 <div className="col d-flex flex-column align-items-center">
-                    <p>Se vuoi saperne di più leggi la documentazione e accedi al repository:</p>
+                    <p>Se vuoi saperne di più scarica la documentazione e accedi al repository:</p>
                     <div className="d-flex flex-row">
-                        <a className="btn buttons mt-3 px-4 me-4" href="https://docs.google.com/document/d/14BGtnTn77nNWpks8TZLnUIu9761C77BirlMJoCvfP3Y/edit?usp=sharing">
+                        <a className="btn buttons mt-3 px-4 me-4" href="../../documentation/documetation_Yummy.pdf" download>
                             Doc
                         </a>
                         <a className="btn buttons mt-3 px-3" href="https://github.com/valef99/Yummy">
