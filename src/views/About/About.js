@@ -6,11 +6,11 @@ import Gaming from "../../assets/images/game.png";
 import Photography from "../../assets/images/photography.png";
 import Saddle from "../../assets/images/saddle.png";
 import CS from "../../assets/images/programming.png";
-import {Card, CardBody, CardImg, CardTitle, UncontrolledTooltip} from "reactstrap";
+import {Button, Card, CardBody, CardImg, CardTitle, UncontrolledTooltip} from "reactstrap";
 import Github from "../../assets/images/github_icon.png";
 import Linkedin from "../../assets/images/linkedin_icon.png";
 import style from "./About.module.css";
-import RecipeListData from "../../assets/data/food.json";
+import Doc from "../../documentation/documentation_Yummy.pdf";
 
 
 function About() {
@@ -143,8 +143,8 @@ function About() {
                 <div className="col d-flex flex-column align-items-center">
                     <p>Se vuoi saperne di più scarica la documentazione e accedi al repository:</p>
                     <div className="d-flex flex-row">
-                        <a className="btn buttons mt-3 px-4 me-4" href="../../documentation/documetation_Yummy.pdf" download>
-                            Doc
+                        <a href={Doc} download="Yummy_documentation">
+                            <Button className="btn buttons mt-3 px-4 me-4">Doc</Button>
                         </a>
                         <a className="btn buttons mt-3 px-3" href="https://github.com/valef99/Yummy">
                             Github
