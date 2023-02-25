@@ -39,7 +39,7 @@ function Home() {
         <div>
             <div  className={`d-grid mb-5 ${style.wallpaper}`}>
                 <img src={Wallpaper}/>
-                <h1 className="mb-5">Yummy Recipes!</h1>
+                <h1 className="mb-5 text-center">Yummy Recipes!</h1>
                 <div className="mb-5 pb-5">
                     <NavLink className="btn buttons" to="/recipes">Let's cook!</NavLink>
                 </div>

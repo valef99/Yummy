@@ -5,7 +5,7 @@ import elearning from "../../assets/images/elearning-unimib.png";
 import {NavLink} from "react-router-dom";
 
 function Footer(props) {
-    const {courseName, courseLink, navItems} = props;
+    const {courseLink, navItems} = props;
 
     const itemList = navItems.map((item) => {
         return (
