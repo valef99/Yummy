@@ -3,7 +3,7 @@ import RecipeListData from "../../assets/data/food.json"
 import RecipeType from "../../components/RecipeType/RecipeType";
 import {NavLink, useParams} from "react-router-dom";
 import style from "./RecipeDetail.module.css";
-import {ListGroup, ListGroupItem, Progress} from 'reactstrap';
+import {Progress} from 'reactstrap';
 import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
 import Time from "../../assets/images/timer.png"
 import People from "../../assets/images/people.png"
