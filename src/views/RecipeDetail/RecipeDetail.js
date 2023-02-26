@@ -70,9 +70,12 @@ function RecipeDetail(props) {
                              to={`/recipes/${RecipeListData[index+1].id}`}>&gt;</NavLink>
                 }
             </div>
-            <div className={`row rounded-3 ${style.containers}`}>
-                <div className={`col-4 p-0 rounded-3 d-grid align-items-start mb-5 mt-5 ${style.grid}`}>
-                    <img src={currentRecipe.image} className={`ps-5 ${style.recipe}`}/>
+            <div className={`row rounded-3 p-5 ${style.containers}`}>
+                <div className="col-12">
+                    <h2>{currentRecipe.title}</h2>
+                </div>
+                <div className={`col-4 p-0 mt-3 rounded-3 d-grid align-items-start ${style.grid}`}>
+                    <img src={currentRecipe.image} className={` ${style.recipe}`}/>
                     {kcal &&
                         <div className={`rounded-circle d-flex justify-content-center align-items-center m-2 ${style.kcal}`}>
                             <p className="text-center small">
@@ -81,12 +84,7 @@ function RecipeDetail(props) {
                         </div>
                     }
                 </div>
-                <div className="col-8 p-5">
-                    <div className="row">
-                        <div className="col">
-                            <h2>{currentRecipe.title}</h2>
-                        </div>
-                    </div>
+                <div className="col-8 pt-3 ps-5">
                     <div className="row">
                         <div className="col-6">
                             <div className="d-flex flex-row mb-3 mt-3 align-items-center">
