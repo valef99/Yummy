@@ -4,12 +4,12 @@ import {getAuth, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 
 /* firebase*/
 const firebaseConfig = {
-    apiKey: "AIzaSyAiDeLwgr2PMSIWcDGtb9AMG6LC523eGvE",
-    authDomain: "yummy-e4100.firebaseapp.com",
-    projectId: "yummy-e4100",
-    storageBucket: "yummy-e4100.appspot.com",
-    messagingSenderId: "930697665816",
-    appId: "1:930697665816:web:4aa931c21d1978f9e4d26d"
+    apiKey: "AIzaSyBlWvMojZJIpwEHVNpf7X27rJP-pkuKQYU",
+    authDomain: "yummyproject-fe6c0.firebaseapp.com",
+    projectId: "yummyproject-fe6c0",
+    storageBucket: "yummyproject-fe6c0.appspot.com",
+    messagingSenderId: "494491876507",
+    appId: "1:494491876507:web:e155a84be110343637da3e"
 };
 
 // Initialize Firebase
