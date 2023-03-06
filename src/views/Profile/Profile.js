@@ -53,7 +53,7 @@ function Profile() {
 
 
     return(
-        <div>
+        <div className="container">
             <div>
                 <h2>Welcome back!</h2>
                 <h3>frase carina</h3>
