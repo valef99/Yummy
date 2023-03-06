@@ -55,17 +55,27 @@ function Profile() {
     return(
         <div>
             <div>
-                <h3>Register user</h3>
-                <input placeholder="email" onChange={(event) => setRegisterEmail(event.target.value)}/>
-                <input placeholder="password" onChange={(event) => setRegisterPassword(event.target.value)}/>
-                <p>Almeno 6 caratteri PW</p>
-                <button onClick={register}>Create user</button>
+                <h2>Welcome back!</h2>
+                <h3>frase carina</h3>
+                <input placeholder="you@email.com" type="text" onChange={(event) => setRegisterEmail(event.target.value)} required/>
+                <input placeholder="At least 6 characters" type="password" minlength="6" onChange={(event) => setRegisterPassword(event.target.value)} required/>
+                <button onClick={login}>Login</button>
+                <p>OR</p>
+                <button onClick={signInWithGoogle}>Sign in with Google</button>
+                <p>Don't you have an account?<strong>Sign up</strong></p>
             </div>
             <div>
-                <h3>Login user</h3>
-                <input placeholder="email" onChange={(event) => setLoginEmail(event.target.value)}/>
-                <input placeholder="password" onChange={(event) => setLoginPassword(event.target.value)}/>
-                <button onClick={login}>Login</button>
+                <h2>Tell us something about you</h2>
+                <p>Name</p>
+                <input placeholder="Your name" type="text"/>
+                <p>Surname</p>
+                <input placeholder="Your surname" type="text"/>
+                <p>E-mail</p>
+                <input placeholder="your@email.com" type="text" onChange={(event) => setRegisterEmail(event.target.value)} required/>
+                <p>Password</p>
+                <input placeholder="At least 6 characters" type="password" minLength="6"
+                       onChange={(event) => setRegisterPassword(event.target.value)} required/>
+                <button onClick={register}>Register</button>
             </div>
             <h4>User logged in</h4>
             {user?.email}
