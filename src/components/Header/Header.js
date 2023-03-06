@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Collapse, Nav, Navbar, NavbarToggler, NavItem} from "reactstrap";
 import {NavLink as RouterLink} from "react-router-dom";
 import style from "./Header.module.css"
-
+import user from "../../assets/images/user.png"
 
 const Header = (props) => {
     const {logo, navItems} = props;
@@ -33,8 +33,16 @@ const Header = (props) => {
                     <NavbarToggler onClick={toggle}/>
 
                     <Collapse isOpen={isOpen} navbar>
-                        <Nav className="mr-auto" navbar>
+                        <Nav className="mr-auto d-flex w-100" navbar>
                             {itemList}
+                            <NavItem key={"/profile"} className={style.userIcon}>
+                                <RouterLink exact={true}
+                                            activeclassname={style.active}
+                                            to={"/profile"}
+                                            className="nav-link">
+                                    <img src={user} alt=""/>
+                                </RouterLink>
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </div>
