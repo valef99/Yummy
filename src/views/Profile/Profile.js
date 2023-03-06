@@ -85,9 +85,13 @@ function Profile() {
             <h1>{localStorage.getItem("email")}</h1>
             <img src={localStorage.getItem("profilePic")}/>
             <br/>
-            <Checkbox user={user} favourite={1}/>
-            <Checkbox user={user} favourite={2}/>
-            <Checkbox user={user} favourite={3}/>
+            {user &&
+                <div>
+                    <Checkbox user={user} favourite={1}/>
+                    <Checkbox user={user} favourite={2}/>
+                    <Checkbox user={user} favourite={3}/>
+                </div>
+            }
         </div>
     )
 }
