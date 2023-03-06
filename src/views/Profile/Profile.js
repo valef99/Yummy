@@ -4,6 +4,8 @@ import {addDoc, collection, doc, getDocs, setDoc} from "@firebase/firestore";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword} from "firebase/auth";
 import {auth, signInWithGoogle} from "../../firebase";
 import Checkbox from "../../components/Checkbox/Checkbox";
+import {NavLink} from "react-router-dom";
+import style from "../Profile/Profile.module.css";
 
 function Profile() {
     const [registerEmail, setRegisterEmail] = useState("");
@@ -57,11 +59,17 @@ function Profile() {
             <div>
                 <h2>Welcome back!</h2>
                 <h3>frase carina</h3>
-                <input placeholder="you@email.com" type="text" onChange={(event) => setRegisterEmail(event.target.value)} required/>
-                <input placeholder="At least 6 characters" type="password" minlength="6" onChange={(event) => setRegisterPassword(event.target.value)} required/>
-                <button onClick={login}>Login</button>
+                <div className={`d-flex flex-column ${style.login}`}>
+                    <p>E-mail</p>
+                    <input placeholder="you@email.com" type="text"
+                           onChange={(event) => setRegisterEmail(event.target.value)} required/>
+                    <p>Password</p>
+                    <input placeholder="At least 6 characters" type="password" minLength="6"
+                           onChange={(event) => setRegisterPassword(event.target.value)} required/>
+                    <button className="btn buttons" onClick={login}>Login</button>
+                </div>
                 <p>OR</p>
-                <button onClick={signInWithGoogle}>Sign in with Google</button>
+                <button onClick={signInWithGoogle} className={style.loginGoogle}>Sign in with Google</button>
                 <p>Don't you have an account?<strong>Sign up</strong></p>
             </div>
             <div>
@@ -85,13 +93,13 @@ function Profile() {
             <h1>{localStorage.getItem("email")}</h1>
             <img src={localStorage.getItem("profilePic")}/>
             <br/>
-            {user &&
+            {/*user &&
                 <div>
                     <Checkbox user={user} favourite={1}/>
                     <Checkbox user={user} favourite={2}/>
                     <Checkbox user={user} favourite={3}/>
-                </div>
-            }
+                </div> */
+           }
         </div>
     )
 }
