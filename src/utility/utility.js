@@ -6,3 +6,7 @@ export const recipeDefaultImage = (onErrorEvent) =>  onErrorEvent.target.src = l
 export const checkNumber = (recipeList, number) =>  {
     return RecipeListData.map(recipe => recipe.id).indexOf(number) !== -1;
 }
+
+export const checkFav = (favList, fav) => {
+    return favList.includes(fav);
+}

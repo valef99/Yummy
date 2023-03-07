@@ -3,7 +3,7 @@ import {firestore} from "../../firebase";
 import {addDoc, collection, doc, getDocs, setDoc} from "@firebase/firestore";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword} from "firebase/auth";
 import {auth, signInWithGoogle} from "../../firebase";
-import Checkbox from "../../components/Checkbox/Checkbox";
+import CheckboxRecipe from "../../components/CheckboxRecipe/CheckboxRecipe";
 import style from "../Profile/Profile.module.css";
 
 function Profile() {
@@ -101,9 +101,9 @@ function Profile() {
                     <h1>{localStorage.getItem("email")}</h1>
                     <img src={localStorage.getItem("profilePic")}/>
                     <button className="col-3 mt-3 btn buttons" onClick={logout}>Sign out</button>
-                    <Checkbox user={user} favourite={1}/>
-                    <Checkbox user={user} favourite={2}/>
-                    <Checkbox user={user} favourite={3}/>
+                    <CheckboxRecipe user={user} favourite={1}/>
+                    <CheckboxRecipe user={user} favourite={2}/>
+                    <CheckboxRecipe user={user} favourite={3}/>
                 </div>
             }
 

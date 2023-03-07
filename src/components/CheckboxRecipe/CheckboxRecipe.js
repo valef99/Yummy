@@ -2,36 +2,42 @@ import React, {useEffect, useRef, useState} from "react";
 import {addDoc, collection, query, where, getDocs, FieldValue} from "@firebase/firestore";
 import {arrayUnion, arrayRemove, updateDoc, doc } from "firebase/firestore";
 import {firestore} from "../../firebase";
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import {checkFav} from "../../utility/utility";
 
-function Checkbox(props){
+function CheckboxRecipe(props){
     const {user, favourite} = props;
     const ref= collection(firestore,"users");
+    const [checked, setChecked] = useState(false);
 
-    /*TODO: Controllare se già presente allora checkbox già checked -> query non va*/
     let valueCheck;
+    console.log("INIZIO!!! "+ favourite)
     if(user.uid){
-        let q = query(ref, where("uid", "==", user.uid.toString()), where("favourites","array-contains", favourite.toString()));
+        let q = query(ref, where("uid", "==", user.uid.toString()));
         getDocs(q).then((querySnapshot) => {
-            if(querySnapshot.empty)
-                valueCheck= false;
-            else
-                querySnapshot.forEach((doc) => {
-                    valueCheck=true;
+                querySnapshot.forEach((docFav) => {
+                    console.log("favourites: "+docFav.data().favourites.toString().split(","))
+                    valueCheck = checkFav(docFav.data().favourites.toString().split(","),favourite.toString());
+                    console.log(favourite + " " + valueCheck);
+                    setChecked(valueCheck);
+                    console.log("SET!!! "+ valueCheck)
                 })
-
-            console.log(querySnapshot.empty)
         }).catch((error) => {
             console.log(error)
         })
     }
-    const [checked, setChecked] = useState(valueCheck);
 
+    console.log("stato: "+checked)
 
     const handleCheck = event => {
         if(user && user.uid){
-            if (event.target.checked || !checked) {
-                console.log('✅ Checkbox is checked');
-                setChecked(true);
+            setChecked(event.target.checked);
+            console.log("SET2!!! "+ event.target.checked)
+
+            if (event.target.checked) {
+                console.log('✅ CheckboxRecipe is checked');
 
                 let q = query(ref, where("uid","==",user.uid.toString()));
                 getDocs(q).then((querySnapshot) => {
@@ -47,9 +53,8 @@ function Checkbox(props){
 
                         })}).catch((error)=> {console.log(error)})
 
-            } else if(!event.target.checked || checked) {
-                console.log('⛔️ Checkbox is NOT checked');
-                setChecked(false);
+            } else if(!event.target.checked) {
+                console.log('⛔️ CheckboxRecipe is NOT checked');
                 let q = query(ref, where("uid", "==", user.uid.toString()));
                 getDocs(q).then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
@@ -59,7 +64,6 @@ function Checkbox(props){
                     console.log(error)
                 })
             }
-            setChecked(current => !current);
         }
     };
 
@@ -76,9 +80,12 @@ function Checkbox(props){
         });
     }
 
+    const label = { inputProps: { 'aria-label': 'CheckboxRecipe demo' } };
 
     return (
-        <input type="checkbox" onChange={handleCheck} defaultChecked={checked}/>
+        <div>
+            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={handleCheck} checked={checked} />
+        </div>
     )
 }
-export default Checkbox;
+export default CheckboxRecipe;
