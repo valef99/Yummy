@@ -95,7 +95,7 @@ function Profile() {
             <h4>User logged in</h4>
             {user?.email}
 
-            {user &&
+            {user && user.uid &&
                 <div>
                     <h1>{localStorage.getItem("name")}</h1>
                     <h1>{localStorage.getItem("email")}</h1>

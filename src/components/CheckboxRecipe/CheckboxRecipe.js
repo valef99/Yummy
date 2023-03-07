@@ -13,57 +13,52 @@ function CheckboxRecipe(props){
     const [checked, setChecked] = useState(false);
 
     let valueCheck;
-    console.log("INIZIO!!! "+ favourite)
-    if(user.uid){
+
+    useEffect(() => {
         let q = query(ref, where("uid", "==", user.uid.toString()));
         getDocs(q).then((querySnapshot) => {
-                querySnapshot.forEach((docFav) => {
-                    console.log("favourites: "+docFav.data().favourites.toString().split(","))
-                    valueCheck = checkFav(docFav.data().favourites.toString().split(","),favourite.toString());
-                    console.log(favourite + " " + valueCheck);
-                    setChecked(valueCheck);
-                    console.log("SET!!! "+ valueCheck)
-                })
+            querySnapshot.forEach((docFav) => {
+                console.log("favourites: "+docFav.data().favourites.toString().split(","))
+                valueCheck = checkFav(docFav.data().favourites.toString().split(","),favourite.toString());
+                setChecked(valueCheck);
+            })
         }).catch((error) => {
             console.log(error)
         })
-    }
+    }, [])
 
-    console.log("stato: "+checked)
+    console.log("stato "+ favourite + ": "+checked)
 
     const handleCheck = event => {
-        if(user && user.uid){
-            setChecked(event.target.checked);
-            console.log("SET2!!! "+ event.target.checked)
+        setChecked(event.target.checked);
 
-            if (event.target.checked) {
-                console.log('✅ CheckboxRecipe is checked');
+        if (event.target.checked) {
+            console.log('✅ CheckboxRecipe is checked');
 
-                let q = query(ref, where("uid","==",user.uid.toString()));
-                getDocs(q).then((querySnapshot) => {
-                    if(querySnapshot.empty){
-                        addDoc(ref, {uid: user.uid, favourites: favourite}).then((response) => {
-                            console.log(response);
-                        }).catch((error)=> {console.log(error)})
-                    }
+            let q = query(ref, where("uid","==",user.uid.toString()));
+            getDocs(q).then((querySnapshot) => {
+                if(querySnapshot.empty){
+                    addDoc(ref, {uid: user.uid, favourites: favourite}).then((response) => {
+                        console.log(response);
+                    }).catch((error)=> {console.log(error)})
+                }
 
-                    else
-                        querySnapshot.forEach((doc) => {
-                            addFav(doc.id);
-
-                        })}).catch((error)=> {console.log(error)})
-
-            } else if(!event.target.checked) {
-                console.log('⛔️ CheckboxRecipe is NOT checked');
-                let q = query(ref, where("uid", "==", user.uid.toString()));
-                getDocs(q).then((querySnapshot) => {
+                else
                     querySnapshot.forEach((doc) => {
-                        removeFav(doc.id);
-                    })
-                }).catch((error) => {
-                    console.log(error)
+                        addFav(doc.id);
+
+                    })}).catch((error)=> {console.log(error)})
+
+        } else{
+            console.log('⛔️ CheckboxRecipe is NOT checked');
+            let q = query(ref, where("uid", "==", user.uid.toString()));
+            getDocs(q).then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    removeFav(doc.id);
                 })
-            }
+            }).catch((error) => {
+                console.log(error)
+            })
         }
     };
 
