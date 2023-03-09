@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import RecipesTable from "../../components/RecipesTable/RecipesTable";
 import RecipesCardsGrid from "../../components/RecipesCardsGrid/RecipesCardsGrid";
 import style from "./Recipes.module.css"
@@ -6,9 +6,18 @@ import clsx from "clsx";
 import RecipesListData from "../../assets/data/food.json"
 import Grid from "../../assets/images/grid.png"
 import Table from "../../assets/images/table.png"
+import {onAuthStateChanged} from "firebase/auth";
+import {auth} from "../../firebase";
 
 function Recipes() {
     const[displayGrid, setDisplayGrid] = useState("true");
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+    }, []);
+    console.log("recipe user: " +user.uid)
 
     return(
         <div className="container">
