@@ -17,7 +17,7 @@ function Recipes() {
             setUser(currentUser);
         });
     }, []);
-    console.log("recipe user: " +user.uid)
+
 
     return(
         <div className="container">

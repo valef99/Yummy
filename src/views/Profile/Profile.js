@@ -6,6 +6,9 @@ import {auth, signInWithGoogle} from "../../firebase";
 import CheckboxRecipe from "../../components/CheckboxRecipe/CheckboxRecipe";
 import style from "../Profile/Profile.module.css";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import Email from "../../assets/images/email.png";
+import Password from "../../assets/images/password.png";
+
 
 function Profile() {
     const [registerEmail, setRegisterEmail] = useState("");
@@ -79,16 +82,34 @@ function Profile() {
     return(
         <div className="container">
             <div>
-                <h3>Login user</h3>
-                <form className="d-flex flex-column" onSubmit={submitHandler}>
-                    <label className="mt-2">Email</label>
-                    <input className="col-3" placeholder="email" onChange={(event) => {setLoginEmail(event.target.value)}} required/>
-                    <label className="mt-2">Password</label>
-                    <input className="col-3" placeholder="password" type="password" minLength="6" onChange={(event) => {setLoginPassword(event.target.value)}} required/>
-                    <button className="col-3 mt-3 btn buttons" onClick={login}>Login</button>
-                </form>
-                <p>OR</p>
-                <button className={style.loginGoogle} onClick={signInWithGoogle}>Google</button>
+                <h2>Welcome back!</h2>
+                <h5>We missed you</h5>
+                <div className="w-50 mt-4">
+                    <form className="d-flex flex-column" onSubmit={submitHandler}>
+                        <div className="d-flex flex-row align-items-center pb-4">
+                            <img src={Email} className={style.authIcon} alt="email icon"/>
+                            <input className="w-100" placeholder="email" onChange={(event) => {setLoginEmail(event.target.value)}} required/>
+                        </div>
+                        <div className="d-flex flex-row align-items-start">
+                            <img src={Password} className={style.authIcon} alt="password icon"/>
+                            <div className="d-flex flex-column w-100 mb-3">
+                                <input placeholder="password" type="password" minLength="6" onChange={(event) => {setLoginPassword(event.target.value)}} required/>
+                                <p className="small pt-2">* At least 6 characters</p>
+                            </div>
+                        </div>
+                        <button className="mt-3 mb-2 btn buttons w-100" onClick={login}>Login</button>
+                        <p className={`my-4 ${style.orContainer}`}>
+                            <span>
+                                OR
+                            </span>
+                        </p>
+                        <div className="d-flex justify-content-center mt-2 mb-4">
+                            <button className={style.loginGoogle} onClick={signInWithGoogle}>Google</button>
+                        </div>
+
+                    </form>
+
+                </div>
             </div>
             <div>
                 <div className="d-flex flex-row align-items-center">
