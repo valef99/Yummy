@@ -40,9 +40,10 @@ function Recipes() {
                     { displayGrid ?
                         (<RecipesCardsGrid
                                 RecipesList={RecipesListData}
-                                col={{xs:1, sm:2, md:3, lg:3, xl:3}}/>)
+                                col={{xs:1, sm:2, md:3, lg:3, xl:3}}
+                                user={user}/>)
                         :
-                        (<RecipesTable RecipesList={RecipesListData}/>)}
+                        (<RecipesTable RecipesList={RecipesListData} user={user}/>)}
                 </div>
             </div>
         </div>

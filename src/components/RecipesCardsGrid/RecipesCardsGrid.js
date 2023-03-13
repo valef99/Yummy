@@ -5,7 +5,7 @@ import RecipesListData from "../../assets/data/food.json";
 import style from "./RecipesCardsGrid.module.css"
 
 function RecipesCardsGrid(props) {
-    const {RecipesList, col} = props;
+    const {RecipesList, col, user} = props;
     const [item, setItem] = useState(RecipesList);
 
     const menuItems = [...new Set(["Vegetarian", "Vegan", "Gluten free"])];
@@ -29,7 +29,8 @@ function RecipesCardsGrid(props) {
                 <RecipeCard
                     name={recipe.title}
                     number={recipe.id}
-                    image={recipe.image}/>
+                    image={recipe.image}
+                    user={user}/>
             </div>
         );
     });

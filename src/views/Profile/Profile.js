@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {firestore} from "../../firebase";
-import {addDoc, collection, doc, getDocs, setDoc} from "@firebase/firestore";
+import {addDoc, collection, doc, getDocs, query, setDoc, where} from "@firebase/firestore";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword} from "firebase/auth";
 import {auth, signInWithGoogle} from "../../firebase";
 import CheckboxRecipe from "../../components/CheckboxRecipe/CheckboxRecipe";
@@ -8,6 +8,11 @@ import style from "../Profile/Profile.module.css";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import Email from "../../assets/images/email.png";
 import Password from "../../assets/images/password.png";
+import RecipesListData from "../../assets/data/food.json";
+import RecipesCardsGrid from "../../components/RecipesCardsGrid/RecipesCardsGrid";
+import {checkFav} from "../../utility/utility";
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import recipeListData from "../../assets/data/food.json"
 
 
 function Profile() {
@@ -16,10 +21,12 @@ function Profile() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [user, setUser] = useState({});
-    const [favourite, setFavourite] = useState([]);
+    const [favouriteList, setFavouriteList] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [recipeCards, setRecipeCards] = useState(null);
 
     const toggle = () => setIsOpen(!isOpen);
+      var filteredList = [];
 
     function clearFields(event) {
         Array.from(event.target).forEach((e) => (e.value = ""));
@@ -28,13 +35,10 @@ function Profile() {
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setRecipeCards(null);
         });
-        getUsers();
     }, [])
 
-    useEffect(()=> {
-        console.log(favourite);
-    }, [favourite])
 
     const register = async () => {
         try{
@@ -72,12 +76,35 @@ function Profile() {
 
     const ref= collection(firestore,"users");
 
-    function getUsers(){
-        getDocs(ref).then((response)=> {
-            const usersList = response.docs.map((doc) => ({data: doc.data(), id: doc.id}))
-            setFavourite(usersList);
-        }).catch((error) => {console.log(error)})
-    }
+    useEffect(() => {
+        let uid = user?.uid;
+        if(uid !== undefined){
+            let q = query(ref, where("uid", "==", uid.toString()));
+            getDocs(q).then((querySnapshot) => {
+                querySnapshot.forEach((docFav) => {
+                    setFavouriteList(docFav.data().favourites.toString().split(","));
+                    let favItems = docFav.data().favourites.toString().split(",");
+                    filteredList = recipeListData.filter((recipe) => favItems.some((e) => parseInt(e) === recipe.id));
+                    setRecipeCards (filteredList.map((recipe) => {
+                        return(
+                            <div key={recipe.id} className="col mb-4">
+                                <RecipeCard
+                                    name={recipe.title}
+                                    number={recipe.id}
+                                    image={recipe.image}
+                                />
+                            </div>
+                        );
+                    }));
+                    console.log(recipeCards);
+                })
+            }).catch((error) => {
+                console.log(error)
+            })
+        }
+    }, [user])
+
+
 
     return(
         <div className="container">
@@ -85,7 +112,7 @@ function Profile() {
                 <div>
                     <div>
                         <h2>Welcome back!</h2>
-                        <h5>We missed you</h5>
+                        <p>Your favourite recipes are waiting for you</p>
                         <div className="w-50 mt-4">
                             <form className="d-flex flex-column" onSubmit={submitHandler}>
                                 <div className="d-flex flex-row align-items-center pb-4">
@@ -157,9 +184,8 @@ function Profile() {
                     </div>
 
                     <h5>Your favourite recipes</h5>
-                    <CheckboxRecipe user={user} favourite={1}/>
-                    <CheckboxRecipe user={user} favourite={2}/>
-                    <CheckboxRecipe user={user} favourite={3}/>
+                    {filteredList &&
+                        recipeCards}
                 </div>
             }
 

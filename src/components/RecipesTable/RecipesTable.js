@@ -4,9 +4,10 @@ import style from "./RecipesTable.module.css"
 import {NavLink} from "react-router-dom";
 import Filter from "../Filter/Filter";
 import RecipesListData from "../../assets/data/food.json";
+import CheckboxRecipe from "../CheckboxRecipe/CheckboxRecipe";
 
 function RecipesTable(props) {
-    const {RecipesList} = props;
+    const {RecipesList, user} = props;
     const [item, setItem] = useState(RecipesList);
 
     const menuItems = [...new Set(["Vegetarian", "Vegan", "Gluten free"])];
@@ -31,7 +32,10 @@ function RecipesTable(props) {
                 <td>
                     <img src={recipe.image}/>
                 </td>
-                <td>{recipe.title}</td>
+                <td>
+                    {recipe.title}
+                    <CheckboxRecipe user={user} favourite={recipe.id}/>
+                </td>
                 <td>
                     <RecipeType id={recipe.id}/>
                 </td>

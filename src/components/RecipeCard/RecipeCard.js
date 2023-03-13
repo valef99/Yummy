@@ -3,9 +3,10 @@ import {Card, CardBody, CardImg, CardTitle} from "reactstrap";
 import style from "./RecipeCard.module.css"
 import {recipeDefaultImage, checkNumber} from "../../utility/utility";
 import {NavLink} from "react-router-dom";
+import CheckboxRecipe from "../CheckboxRecipe/CheckboxRecipe";
 
 function RecipeCard(props) {
-    const {name, number, image} = props;
+    const {name, number, image, user} = props;
     const types = 0;
 
     return(
@@ -20,6 +21,9 @@ function RecipeCard(props) {
 
                     <CardBody className="d-flex flex-row justify-content-between">
                         <CardTitle tag="h5">{name}</CardTitle>
+                        {user && user.uid &&
+                            <CheckboxRecipe user={user} favourite={number}/>
+                        }
                     </CardBody>
                 </Card>
     );
