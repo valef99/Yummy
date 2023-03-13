@@ -13,6 +13,7 @@ import RecipesCardsGrid from "../../components/RecipesCardsGrid/RecipesCardsGrid
 import {checkFav} from "../../utility/utility";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import recipeListData from "../../assets/data/food.json"
+import Food from "../../assets/images/profile_foods.gif"
 
 
 function Profile() {
@@ -188,7 +189,7 @@ function Profile() {
                         recipeCards}
                 </div>
             }
-
+            <img src={Food}/>
         </div>
     )
 }
