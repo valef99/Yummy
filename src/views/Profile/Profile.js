@@ -3,17 +3,15 @@ import {firestore} from "../../firebase";
 import {addDoc, collection, doc, getDocs, query, setDoc, where} from "@firebase/firestore";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword} from "firebase/auth";
 import {auth, signInWithGoogle} from "../../firebase";
-import CheckboxRecipe from "../../components/CheckboxRecipe/CheckboxRecipe";
 import style from "../Profile/Profile.module.css";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import Email from "../../assets/images/email.png";
 import Password from "../../assets/images/password.png";
-import RecipesListData from "../../assets/data/food.json";
-import RecipesCardsGrid from "../../components/RecipesCardsGrid/RecipesCardsGrid";
-import {checkFav} from "../../utility/utility";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import recipeListData from "../../assets/data/food.json"
-import Food from "../../assets/images/profile_foods.gif"
+import Food from "../../assets/images/DB loader.mp4"
+import {NavLink} from "react-router-dom";
+import Nothing from "../../assets/images/banana.png"
 
 
 function Profile() {
@@ -22,7 +20,6 @@ function Profile() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [user, setUser] = useState({});
-    const [favouriteList, setFavouriteList] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [recipeCards, setRecipeCards] = useState(null);
 
@@ -83,7 +80,6 @@ function Profile() {
             let q = query(ref, where("uid", "==", uid.toString()));
             getDocs(q).then((querySnapshot) => {
                 querySnapshot.forEach((docFav) => {
-                    setFavouriteList(docFav.data().favourites.toString().split(","));
                     let favItems = docFav.data().favourites.toString().split(",");
                     filteredList = recipeListData.filter((recipe) => favItems.some((e) => parseInt(e) === recipe.id));
                     setRecipeCards (filteredList.map((recipe) => {
@@ -108,7 +104,7 @@ function Profile() {
 
 
     return(
-        <div className="container">
+        <div className="container d-flex flex-row">
             {!user &&
                 <div>
                     <div>
@@ -170,7 +166,7 @@ function Profile() {
                 <div className={`p-5 ${style.userProfile}`}>
                     <h4>Welcome back {localStorage.getItem("name")}! </h4>
                     <div className="d-flex flex-row mb-4">
-                        <img src={localStorage.getItem("profilePic")}/>
+                        <img src={localStorage.getItem("profilePic")} className={style.imgProfile}/>
                         <div className="ps-3">
                             <div className="d-flex flex-row align-items-center">
                                 <h5 className="m-0 pe-2">Nickname: </h5>
@@ -184,12 +180,31 @@ function Profile() {
                         </div>
                     </div>
 
-                    <h5>Your favourite recipes</h5>
+                    <h5 className="mb-3">Your favourite recipes</h5>
                     {filteredList &&
-                        recipeCards}
+                        <div className={`row 
+                            row-cols-1
+                            row-cols-sm-2
+                            row-cols-md-3
+                            row-cols-lg-3
+                            row-cols-xl-3`}>
+                            {recipeCards}
+                        </div>
+                    }
+                    {filteredList.length === 0 &&
+                    <div className="d-flex flex-column">
+                        <div className="d-flex flex-row align-items-center justify-content-center">
+                            <img src={Nothing} className={style.nothing}/>
+                            <h4 className="ms-4 text-black">Nothing to see here</h4>
+                        </div>
+                        <NavLink className="btn buttons align-self-center" to="/recipes">View all recipes</NavLink>
+                    </div>}
                 </div>
             }
-            <img src={Food}/>
+            <div className={style.containerVideo}>
+
+            </div>
+            <video autoPlay loop src={Food} type="video/mp4" className="w-50" />
         </div>
     )
 }

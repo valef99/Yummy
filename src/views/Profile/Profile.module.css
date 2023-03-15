@@ -87,8 +87,19 @@ padding:0 10px;
 
 .userProfile{
     background-color: #FFFAFF;
-    border-radius: 5%;
+    border-radius: 0.375rem;
 }
-.userProfile img{
+.imgProfile{
     width: 20%;
+    height: fit-content;
+}
+.nothing{
+    width: 20%;
+}
+.containerVideo{
+    background-color: #FFFAFF;
+    height: 100%;
+}
+video{
+    clip-path: inset(1px 1px);
 }
