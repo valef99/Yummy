@@ -19,7 +19,7 @@ function Profile() {
     const [loginPassword, setLoginPassword] = useState("");
     const [user, setUser] = useState({});
     const [isOpen, setIsOpen] = useState(false);
-    const [recipeCards, setRecipeCards] = useState(null);
+    const [recipeCards, setRecipeCards] = useState([]);
 
     const toggle = () => setIsOpen(!isOpen);
       var filteredList = [];
@@ -31,7 +31,7 @@ function Profile() {
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            setRecipeCards(null);
+            setRecipeCards([]);
         });
     }, [])
 
@@ -91,13 +91,13 @@ function Profile() {
                             </div>
                         );
                     }));
-                    console.log(recipeCards);
                 })
             }).catch((error) => {
                 console.log(error)
             })
         }
     }, [user])
+
 
 
 
@@ -171,7 +171,7 @@ function Profile() {
                     </div>
 
                     <h4 className="mb-3 mt-5">Your favourite recipes</h4>
-                    {filteredList &&
+                    {(recipeCards.length>0) ?
                         <div className={`row 
                             row-cols-1
                             row-cols-sm-2
@@ -180,15 +180,15 @@ function Profile() {
                             row-cols-xl-3`}>
                             {recipeCards}
                         </div>
-                    }
-                    {filteredList.length === 0 &&
+                    :
                     <div className="d-flex flex-column">
                         <div className="d-flex flex-row align-items-center justify-content-center">
                             <img src={Nothing} className={style.nothing}/>
                             <h4 className="ms-4 text-black">Nothing to see here</h4>
                         </div>
                         <NavLink className="btn buttons align-self-center" to="/recipes">View all recipes</NavLink>
-                    </div>}
+                    </div>
+                    }
                 </div>
             }
             <video autoPlay loop src={Food} type="video/mp4" className="w-50" />

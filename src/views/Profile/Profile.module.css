@@ -102,4 +102,5 @@ padding:0 10px;
 
 video{
     clip-path: inset(1px 1px);
+    width: 100%;
 }
