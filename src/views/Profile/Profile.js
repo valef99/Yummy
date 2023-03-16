@@ -9,7 +9,10 @@ import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import recipeListData from "../../assets/data/food.json"
 import Food from "../../assets/images/foodVideo.mp4"
 import {NavLink} from "react-router-dom";
-import Nothing from "../../assets/images/banana.png"
+import Nothing from "../../assets/images/banana.png";
+import defaultProfile from "../../assets/images/defaultProfile.png";
+import {profileDefaultImage} from "../../utility/utility"
+import lottie from "lottie-web";
 
 
 function Profile() {
@@ -22,19 +25,26 @@ function Profile() {
     const [recipeCards, setRecipeCards] = useState(null);
 
     const toggle = () => setIsOpen(!isOpen);
-      var filteredList = [];
+    var filteredList = [];
 
     function clearFields(event) {
         Array.from(event.target).forEach((e) => (e.value = ""));
     }
+    const animationCook= useRef(null);
 
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setRecipeCards(null);
         });
+        lottie.loadAnimation({
+            container: animationCook.current, // Required
+            renderer: 'svg', // Required
+            loop: true, // Optional
+            autoplay: true, // Optional
+            animationData: require('../../assets/data/cooking.json')
+        })
     }, [])
-
 
     const register = async () => {
         try{
@@ -42,7 +52,7 @@ function Profile() {
                 () => {
                     localStorage.setItem("name", registerEmail.substring(0,registerEmail.indexOf("@")));
                     localStorage.setItem("email", registerEmail);
-                    localStorage.setItem("profilePic", "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png");
+                    localStorage.setItem("profilePic", defaultProfile);
                 }
             )
         }catch (e) {
@@ -55,7 +65,7 @@ function Profile() {
                 () => {
                     localStorage.setItem("name", loginEmail.substring(0,loginEmail.indexOf("@")));
                     localStorage.setItem("email", loginEmail);
-                    localStorage.setItem("profilePic", "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png");
+                    localStorage.setItem("profilePic", defaultProfile);
                 }
             )
         }catch (e) {
@@ -106,25 +116,26 @@ function Profile() {
             {!user &&
                 <div className={style.containerLogin}>
                     <div>
-                        <h3 className="pt-5 ps-5 pe-5">Welcome back!</h3>
-                        <h6 className="ps-5 pe-5">Your favourite recipes are waiting for you</h6>
-                        <div className="w-50 mt-4">
-                            <form className="d-flex flex-column mt-5 ps-5 pe-5" onSubmit={submitHandler}>
-                                <label className="mt-2 mb-1">Email<b className="text-danger">*</b></label>
-                                <input className="col-3 w-100 p-1 rounded-2" placeholder="you@example.com" onFocus={style.activeInput} onChange={(event) => {setLoginEmail(event.target.value)}} required/>
-                                <label className="mt-3 mb-1">Password<b className="text-danger">*</b></label>
-                                <input className="col-3 w-100 p-1 rounded-2" placeholder="At least 6 characters" type="password" minLength="6" onChange={(event) => {setLoginPassword(event.target.value)}} required/>
-                                <button className="col-3 mt-4 btn buttons w-100 mb-2" onClick={login}>Login</button>
-                                <p className={`my-4 ${style.orContainer}`}>
+                        <div>
+                            <h3 className="pt-5 ps-5 pe-5">Welcome back!</h3>
+                            <h6 className="ps-5 pe-5">Your favourite recipes are waiting for you</h6>
+                            <div className="mt-4">
+                                <form className="d-flex flex-column mt-5 ps-5 pe-5" onSubmit={submitHandler}>
+                                    <label className="mt-2 mb-1">Email<b className="text-danger">*</b></label>
+                                    <input className="col w-100 p-1 rounded-2" placeholder="you@example.com" onFocus={style.activeInput} onChange={(event) => {setLoginEmail(event.target.value)}} required/>
+                                    <label className="mt-3 mb-1">Password<b className="text-danger">*</b></label>
+                                    <input className="col w-100 p-1 rounded-2" placeholder="At least 6 characters" type="password" minLength="6" onChange={(event) => {setLoginPassword(event.target.value)}} required/>
+                                    <button className="col mt-4 btn buttons w-100 mb-2" onClick={login}>Login</button>
+                                    <p className={`my-4 ${style.orContainer}`}>
                                     <span>
                                         OR
                                     </span>
-                                </p>
-                                <div className="d-flex justify-content-center mt-2 mb-4">
-                                    <button className={style.loginGoogle} onClick={signInWithGoogle}>Google</button>
-                                </div>
-
-                            </form>
+                                    </p>
+                                    <div className="d-flex justify-content-center mt-2 mb-4">
+                                        <button className={style.loginGoogle} onClick={signInWithGoogle}>Google</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -140,14 +151,12 @@ function Profile() {
                             <h6 className="ps-5 pe-5">Create your account now</h6>
                             <form className="d-flex flex-column mt-5 ps-5 pe-5" onSubmit={submitHandler}>
                                 <label className="mt-2 mb-1">Email<b className="text-danger">*</b></label>
-                                <input className="col-3 w-100 p-1 rounded-2" placeholder="you@example.com" onFocus={style.activeInput} onChange={(event) => {setRegisterEmail(event.target.value)}} required/>
+                                <input className="col w-100 p-1 rounded-2" placeholder="you@example.com" onFocus={style.activeInput} onChange={(event) => {setRegisterEmail(event.target.value)}} required/>
                                 <label className="mt-3 mb-1">Password<b className="text-danger">*</b></label>
-                                <input className="col-3 w-100 p-1 rounded-2" placeholder="At least 6 characters" type="password" minLength="6" onChange={(event) => {setRegisterPassword(event.target.value)}} required/>
-                                <button className="col-3 mt-4 btn buttons w-100 mb-5" type="submit" onClick={register}>Sign up</button>
+                                <input className="col w-100 p-1 rounded-2" placeholder="At least 6 characters" type="password" minLength="6" onChange={(event) => {setRegisterPassword(event.target.value)}} required/>
+                                <button className="col mt-4 btn buttons w-100 mb-5" type="submit" onClick={register}>Sign up</button>
                             </form>
                         </Collapse>
-
-
                     </div>
                 </div>
             }
@@ -156,7 +165,7 @@ function Profile() {
                 <div className={`p-5 ${style.userProfile}`}>
                     <h4 className="mb-4">Welcome back {localStorage.getItem("name")}! </h4>
                     <div className="d-flex flex-row mb-4">
-                        <img src={localStorage.getItem("profilePic")} className={style.imgProfile}/>
+                        <img src={localStorage.getItem("profilePic")} className={style.imgProfile} onError={(event) => profileDefaultImage(event)}/>
                         <div className="ps-3">
                             <div className="d-flex flex-row align-items-center mb-2">
                                 <h5 className="m-0 pe-2">Nickname: </h5>
@@ -182,16 +191,16 @@ function Profile() {
                         </div>
                     }
                     {filteredList.length === 0 &&
-                    <div className="d-flex flex-column">
-                        <div className="d-flex flex-row align-items-center justify-content-center">
-                            <img src={Nothing} className={style.nothing}/>
-                            <h4 className="ms-4 text-black">Nothing to see here</h4>
-                        </div>
-                        <NavLink className="btn buttons align-self-center" to="/recipes">View all recipes</NavLink>
-                    </div>}
+                        <div className="d-flex flex-column">
+                            <div className="d-flex flex-row align-items-center justify-content-center">
+                                <img src={Nothing} className={style.nothing}/>
+                                <h4 className="ms-4 text-black">Nothing to see here</h4>
+                            </div>
+                            <NavLink className="btn buttons align-self-center" to="/recipes">View all recipes</NavLink>
+                        </div>}
                 </div>
             }
-            <video autoPlay loop src={Food} type="video/mp4" className="w-50" />
+            <div className={`animation ${style.animation}`}  ref={animationCook}> </div>
         </div>
     )
 }

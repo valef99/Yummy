@@ -62,11 +62,11 @@ function RecipeDetail(props) {
         <div className="container">
             <div className={style.navigation}>
                 {index !== 0 &&
-                    <NavLink className={`${style.prev} ${style.navItem}`}
+                    <NavLink className={`${style.prev}`}
                              to={`/recipes/${RecipeListData[index-1].id}`}>&lt;</NavLink>
                 }
                 {index+1 < Object.keys(RecipeListData).length &&
-                    <NavLink className={`${style.next} ${style.navItem}`}
+                    <NavLink className={`${style.next}`}
                              to={`/recipes/${RecipeListData[index+1].id}`}>&gt;</NavLink>
                 }
             </div>

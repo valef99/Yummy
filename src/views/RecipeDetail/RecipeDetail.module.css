@@ -1,9 +1,15 @@
 .navigation {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     padding: 4px;
     text-transform: uppercase;
+}
+.prev {
+    padding-left: 0;
+}
+.next {
+    padding-right: 0;
+    margin-left: auto;
 }
 .prev, .next {
     font-size: 40px;
