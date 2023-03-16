@@ -7,7 +7,7 @@ import style from "../Profile/Profile.module.css";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import recipeListData from "../../assets/data/food.json"
-import Food from "../../assets/images/DB loader.mp4"
+import Food from "../../assets/images/foodVideo.mp4"
 import {NavLink} from "react-router-dom";
 import Nothing from "../../assets/images/banana.png"
 
