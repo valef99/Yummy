@@ -5,8 +5,6 @@ import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithE
 import {auth, signInWithGoogle} from "../../firebase";
 import style from "../Profile/Profile.module.css";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
-import Email from "../../assets/images/email.png";
-import Password from "../../assets/images/password.png";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import recipeListData from "../../assets/data/food.json"
 import Food from "../../assets/images/DB loader.mp4"
@@ -106,39 +104,31 @@ function Profile() {
     return(
         <div className="container d-flex flex-row">
             {!user &&
-                <div>
+                <div className={style.containerLogin}>
                     <div>
-                        <h2>Welcome back!</h2>
-                        <p>Your favourite recipes are waiting for you</p>
+                        <h3 className="pt-5 ps-5 pe-5">Welcome back!</h3>
+                        <h6 className="ps-5 pe-5">Your favourite recipes are waiting for you</h6>
                         <div className="w-50 mt-4">
-                            <form className="d-flex flex-column" onSubmit={submitHandler}>
-                                <div className="d-flex flex-row align-items-center pb-4">
-                                    <img src={Email} className={style.authIcon} alt="email icon"/>
-                                    <input className="w-100" placeholder="email" onChange={(event) => {setLoginEmail(event.target.value)}} required/>
-                                </div>
-                                <div className="d-flex flex-row align-items-start">
-                                    <img src={Password} className={style.authIcon} alt="password icon"/>
-                                    <div className="d-flex flex-column w-100 mb-3">
-                                        <input placeholder="password" type="password" minLength="6" onChange={(event) => {setLoginPassword(event.target.value)}} required/>
-                                        <p className="small pt-2">* At least 6 characters</p>
-                                    </div>
-                                </div>
-                                <button className="mt-3 mb-2 btn buttons w-100" onClick={login}>Login</button>
+                            <form className="d-flex flex-column mt-5 ps-5 pe-5" onSubmit={submitHandler}>
+                                <label className="mt-2 mb-1">Email<b className="text-danger">*</b></label>
+                                <input className="col-3 w-100 p-1 rounded-2" placeholder="you@example.com" onFocus={style.activeInput} onChange={(event) => {setLoginEmail(event.target.value)}} required/>
+                                <label className="mt-3 mb-1">Password<b className="text-danger">*</b></label>
+                                <input className="col-3 w-100 p-1 rounded-2" placeholder="At least 6 characters" type="password" minLength="6" onChange={(event) => {setLoginPassword(event.target.value)}} required/>
+                                <button className="col-3 mt-4 btn buttons w-100 mb-2" onClick={login}>Login</button>
                                 <p className={`my-4 ${style.orContainer}`}>
-                            <span>
-                                OR
-                            </span>
+                                    <span>
+                                        OR
+                                    </span>
                                 </p>
                                 <div className="d-flex justify-content-center mt-2 mb-4">
                                     <button className={style.loginGoogle} onClick={signInWithGoogle}>Google</button>
                                 </div>
 
                             </form>
-
                         </div>
                     </div>
                     <div>
-                        <div className="d-flex flex-row align-items-center">
+                        <div className="d-flex flex-row align-items-center pb-3 ps-5">
                             <p>Don't you have an account?</p>
                             <Button onClick={toggle} className={style.signup}>
                                 Sign up
@@ -164,15 +154,15 @@ function Profile() {
 
             {user && user.uid &&
                 <div className={`p-5 ${style.userProfile}`}>
-                    <h4>Welcome back {localStorage.getItem("name")}! </h4>
+                    <h4 className="mb-4">Welcome back {localStorage.getItem("name")}! </h4>
                     <div className="d-flex flex-row mb-4">
                         <img src={localStorage.getItem("profilePic")} className={style.imgProfile}/>
                         <div className="ps-3">
-                            <div className="d-flex flex-row align-items-center">
+                            <div className="d-flex flex-row align-items-center mb-2">
                                 <h5 className="m-0 pe-2">Nickname: </h5>
                                 <p>{localStorage.getItem("name")}</p>
                             </div>
-                            <div className="d-flex flex-row align-items-center">
+                            <div className="d-flex flex-row align-items-center mb-3">
                                 <h5 className="m-0 pe-2">Email: </h5>
                                 <p>{localStorage.getItem("email")}</p>
                             </div>
@@ -180,7 +170,7 @@ function Profile() {
                         </div>
                     </div>
 
-                    <h5 className="mb-3">Your favourite recipes</h5>
+                    <h4 className="mb-3 mt-5">Your favourite recipes</h4>
                     {filteredList &&
                         <div className={`row 
                             row-cols-1
@@ -201,9 +191,6 @@ function Profile() {
                     </div>}
                 </div>
             }
-            <div className={style.containerVideo}>
-
-            </div>
             <video autoPlay loop src={Food} type="video/mp4" className="w-50" />
         </div>
     )

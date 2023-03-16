@@ -79,7 +79,7 @@ function CheckboxRecipe(props){
 
     return (
         <div>
-            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={handleCheck} checked={checked} />
+            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={handleCheck} checked={checked} className="m-0 p-0"/>
         </div>
     )
 }

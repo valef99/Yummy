@@ -58,7 +58,7 @@
     width: 100%;
 }
 .userIcon img{
-    max-width: 33px;
+    max-width: 40px;
     transition: all .2s;
 }
 .userIcon img:hover{
