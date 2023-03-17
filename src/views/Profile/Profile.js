@@ -13,6 +13,7 @@ import Nothing from "../../assets/images/banana.png";
 import defaultProfile from "../../assets/images/defaultProfile.png";
 import {profileDefaultImage} from "../../utility/utility"
 import lottie from "lottie-web";
+import clsx from "clsx";
 
 
 function Profile() {
@@ -162,7 +163,7 @@ function Profile() {
             }
 
             {user && user.uid &&
-                <div className={`p-5 ${style.userProfile}`}>
+                <div className={`p-5 w-100 ${style.userProfile}`}>
                     <h4 className="mb-4">Welcome back {localStorage.getItem("name")}! </h4>
                     <div className="d-flex flex-row mb-4">
                         <img src={localStorage.getItem("profilePic")} className={style.imgProfile} onError={(event) => profileDefaultImage(event)}/>
@@ -193,7 +194,7 @@ function Profile() {
                     <div className="d-flex flex-column">
                         <div className="d-flex flex-row align-items-center justify-content-center">
                             <img src={Nothing} className={style.nothing}/>
-                            <h4 className="ms-4 text-black">Nothing to see here</h4>
+                            <h4 className="ms-4 text-black">There's nothing to see here</h4>
                         </div>
                         <NavLink className="btn buttons align-self-center" to="/recipes">View all recipes</NavLink>
                     </div>
@@ -201,7 +202,7 @@ function Profile() {
 
                 </div>
             }
-            <div className={`animation ${style.animation}`}  ref={animationCook}> </div>
+            <div className={clsx("animation", style.animation, { "d-none": user } ) } ref={animationCook}> </div>
         </div>
     )
 }
