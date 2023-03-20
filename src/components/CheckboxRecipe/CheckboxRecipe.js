@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useState} from "react";
-import {addDoc, collection, query, where, getDocs, FieldValue} from "@firebase/firestore";
-import {arrayUnion, arrayRemove, updateDoc, doc } from "firebase/firestore";
+import React, {useEffect, useState} from "react";
+import {addDoc, collection, query, where, getDocs} from "@firebase/firestore";
+import {arrayUnion, arrayRemove, updateDoc, doc} from "firebase/firestore";
 import {firestore} from "../../firebase";
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
